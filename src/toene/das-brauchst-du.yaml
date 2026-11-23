@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Das brauchst du hier
+description: "Kurz wiederholt: die Tasten der Klaviatur und wo das c liegt."
+recap: musik/klaviatur-tasten
+blocks:
+  - type: text
+    text: >-
+      Kannst du das schon? **Ich kann die Tasten der Klaviatur benennen und das C finden.** Die weißen Tasten heißen
+      c, d, e, f, g, a, h, danach beginnt es wieder mit c. Das c liegt immer links von zwei schwarzen Tasten, das f
+      links von drei schwarzen Tasten.
+  - type: vue-component
+    component: Klaviatur
+    props:
+      start: 1
+      oktaven: 2
+      markiert: [12, 24]
+      boegen: []
+      be: false
+      schwarzeNamen: false
+      oktavnamen: false
+      beschreibung: "Klaviatur mit zwei Oktaven, die weißen Tasten beschriftet von c bis h¹. Die beiden c-Tasten, c und c¹, sind gelb markiert."
+    nojs: >-
+      Eine Klaviatur mit zwei Oktaven. Die weißen Tasten sind beschriftet: c, d, e, f, g, a, h, c¹, d¹, e¹, f¹, g¹,
+      a¹, h¹. Die schwarzen Tasten liegen in Gruppen zu zwei und drei. Gelb markiert sind c und c¹, jeweils links von
+      zwei schwarzen Tasten.
+  - type: text
+    text: >-
+      Prüf dich im Kopf: Zeig auf der Klaviatur das f und das h. Wenn das klappt, kannst du loslegen. Die kleinen Zahlen
+      und Striche an den Namen (c¹) erklärt die Seite „Oktavlagen“.

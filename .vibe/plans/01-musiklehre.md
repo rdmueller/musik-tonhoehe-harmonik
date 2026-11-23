@@ -412,10 +412,11 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
       `.agents/skills/lernapps-explainer/references/structure.md` says. Write the choice under "Key decisions".
 - [x] Musterseite toene/noten-benennen: Logik Notenbild.ts, Komponenten NotenLesen und NotenSetzen (art ton, Violinschlüssel) mit Tests, Datendatei toene.yaml; die Seite zeigt Einstieg, Regel mit Figur, Beispiel und vier Übungen
 <!-- tasks: pattern (1 added): the one page or screen that is the pattern for the others -->
-- [ ] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
+- [x] **Checkpoint:** the pattern page. Load skill `lernapps-learner-check` and do its learner check on the page. Fix
       what it finds. Then show the creator the page and ask whether the others may follow it. Stop and wait. A
       change: change the pattern first.
-- [ ] Kapitel toene, Wiederholungsseite das-brauchst-du (recap klaviatur-tasten) und Komponente Klaviatur (Anzeige, nojs) mit Test
+      Creator: ja
+- [x] Kapitel toene, Wiederholungsseite das-brauchst-du (recap klaviatur-tasten) und Komponente Klaviatur (Anzeige, nojs) mit Test
 - [ ] Seite toene/notensystem: Violinschlüssel und Linien, Figur Notensystem, NotenLesen im System, matching, single-choice, true-false
 - [ ] Seite toene/oktavlagen: Klaviatur mit Oktavbereichen, NotenLesen mit Oktavlage, matching, generated aus toene
 - [ ] Seite toene/bassschluessel: NotenLesen und NotenSetzen im Bassschlüssel, Meldung Terz-Fehler, single-choice, number
