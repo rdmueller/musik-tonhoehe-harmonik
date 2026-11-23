@@ -474,10 +474,11 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 - [x] Load skill `lernapps-listing`. Write the entry under "Entry draft" as it says, with the creator's answer to
       "Finding the app".
 - [x] Fill the retrospective.
-- [ ] Commit this plan on `main` and push it: the listing check and the review read it there.
-- [ ] **Checkpoint:** list. Open the listing pull request as skill `lernapps-listing` says, without asking first: the
+- [x] Commit this plan on `main` and push it: the listing check and the review read it there.
+- [x] **Checkpoint:** list. Open the listing pull request as skill `lernapps-listing` says, without asking first: the
       pull request is the review. See it to "bestanden", then show the creator the pull request and its result.
-- [ ] If the plan changed since its last push, commit it on `main` and push again.
+      Creator: checke den stand (lernapps/apps#772: Prüfung bestanden, Review pass, zusammengeführt)
+- [x] If the plan changed since its last push, commit it on `main` and push again.
 
 ### Entry draft
 
@@ -509,7 +510,9 @@ fitness:
 ### Phases reached
 
 Commit; Checkpoints Recherche, Plan, Musterseite und Veröffentlichen bestanden; veröffentlicht unter
-https://rdmueller.github.io/musik-tonhoehe-harmonik/ (Commit c3ac54e). Eintrag in den Katalog offen.
+https://rdmueller.github.io/musik-tonhoehe-harmonik/ (Commit c3ac54e); in den Katalog aufgenommen
+(lernapps/apps#772: Prüfung bestanden, Review pass, zusammengeführt). Den Pull Request öffnete der Ersteller per
+Klick, weil diese Sitzung keinen Zugriff auf lernapps/apps hatte.
 
 ### Creator turns after the plan
 
