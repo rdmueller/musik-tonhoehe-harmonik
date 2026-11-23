@@ -70,7 +70,7 @@ function tippen(event: MouseEvent): void {
       :key="`m${p}`"
       class="noten-system-markiert"
       x1="4"
-      :x2="BREITE - 4"
+      :x2="nummern ? BREITE - 14 : BREITE - 4"
       :y1="y(p)"
       :y2="y(p)"
     />
@@ -123,8 +123,8 @@ function tippen(event: MouseEvent): void {
       <ellipse
         :cx="x(n, noten.length, akkord)"
         :cy="y(note.p)"
-        rx="8"
-        ry="5.5"
+        rx="7"
+        ry="5"
         class="noten-system-note"
         :transform="`rotate(-20 ${x(n, noten.length, akkord)} ${y(note.p)})`"
       />
@@ -165,7 +165,7 @@ function tippen(event: MouseEvent): void {
 
 .noten-system-markiert {
   stroke: var(--page-accent);
-  stroke-width: 4;
+  stroke-width: 3;
 }
 
 .noten-system-raum {

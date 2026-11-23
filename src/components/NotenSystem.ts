@@ -18,7 +18,7 @@ export const y = (p: number) => LINIE_0 - p * HALBER_ABSTAND;
 
 /** The x of the n-th of several notes side by side, or of every note of a chord. */
 export const x = (n: number, anzahl: number, akkord: boolean) =>
-  akkord || anzahl <= 1 ? 140 : anzahl <= 3 ? 110 + n * 50 : 66 + n * Math.min(40, 140 / (anzahl - 1));
+  akkord || anzahl <= 1 ? 140 : anzahl <= 3 ? 110 + n * 50 : 58 + n * Math.min(40, 160 / (anzahl - 1));
 
 /** The places of the five lines. */
 export const LINIEN = [0, 2, 4, 6, 8];

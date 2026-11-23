@@ -37,6 +37,7 @@ zeigt, welches Thema für die Lernkontrolle schon sitzt.
   neu gezogenen Aufgaben, keine Erklärseiten, kein Notensetzen. `interactive` scheidet aus: eine einzige Seite ohne
   Erklärungen und ohne Selbsteinschätzung; ein Trainer wäre möglich, die Wiederholung der Regeln aber nicht.
 - Strang `musik/tonhoehe-harmonik`, Themen 1–4; Notation und Orchesteraufbau in einer zweiten App (Antwort „C“).
+- Reihenfolge im Kapitel `toene`: `notensystem`, `oktavlagen`, `noten-benennen`, … – `oktavlagen` vor `noten-benennen` (beide Schritt 5 der Karte), weil das Benennen die Oktavlagen braucht (Befund des Lernenden-Checks).
 - Kein `scope`: keine `open-task`, und die App folgt keinem Material des Erstellers (structure.md, „scope“).
 - Name `musiklehre` statt `musik-lernkontrolle`: Der Name beschreibt den Inhalt, nicht den Anlass. Klasse, Schulform
   und Land stehen im Katalogeintrag (`grades`) und auf der Lernlandkarte, nicht im Namen.
