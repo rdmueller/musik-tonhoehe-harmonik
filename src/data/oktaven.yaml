@@ -1,0 +1,23 @@
+# Stammtöne von C bis h¹: der Ton eine Oktave höher und ein dritter Ton mit gleichem Namen (für eine falsche Antwort).
+# oktave: der Name der Oktave des Tons.
+- { name: "C", hoeher: "c", weit: "c¹", oktave: große Oktave }
+- { name: "D", hoeher: "d", weit: "d¹", oktave: große Oktave }
+- { name: "E", hoeher: "e", weit: "e¹", oktave: große Oktave }
+- { name: "F", hoeher: "f", weit: "f¹", oktave: große Oktave }
+- { name: "G", hoeher: "g", weit: "g¹", oktave: große Oktave }
+- { name: "A", hoeher: "a", weit: "a¹", oktave: große Oktave }
+- { name: "H", hoeher: "h", weit: "h¹", oktave: große Oktave }
+- { name: "c", hoeher: "c¹", weit: "c²", oktave: kleine Oktave }
+- { name: "d", hoeher: "d¹", weit: "d²", oktave: kleine Oktave }
+- { name: "e", hoeher: "e¹", weit: "e²", oktave: kleine Oktave }
+- { name: "f", hoeher: "f¹", weit: "f²", oktave: kleine Oktave }
+- { name: "g", hoeher: "g¹", weit: "g²", oktave: kleine Oktave }
+- { name: "a", hoeher: "a¹", weit: "a²", oktave: kleine Oktave }
+- { name: "h", hoeher: "h¹", weit: "h²", oktave: kleine Oktave }
+- { name: "c¹", hoeher: "c²", weit: "c", oktave: eingestrichene Oktave }
+- { name: "d¹", hoeher: "d²", weit: "d", oktave: eingestrichene Oktave }
+- { name: "e¹", hoeher: "e²", weit: "e", oktave: eingestrichene Oktave }
+- { name: "f¹", hoeher: "f²", weit: "f", oktave: eingestrichene Oktave }
+- { name: "g¹", hoeher: "g²", weit: "g", oktave: eingestrichene Oktave }
+- { name: "a¹", hoeher: "a²", weit: "a", oktave: eingestrichene Oktave }
+- { name: "h¹", hoeher: "h²", weit: "h", oktave: eingestrichene Oktave }

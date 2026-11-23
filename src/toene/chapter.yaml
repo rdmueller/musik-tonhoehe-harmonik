@@ -1,4 +1,4 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
 title: Töne lesen und schreiben
 summary: Notensystem, Violin- und Bassschlüssel, Oktavlagen, Halbtöne und Vorzeichen.
-pages: [das-brauchst-du, notensystem, noten-benennen]
+pages: [das-brauchst-du, notensystem, oktavlagen, noten-benennen]

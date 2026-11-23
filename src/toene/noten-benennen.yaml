@@ -10,7 +10,8 @@ blocks:
       - type: text
         text: >-
           Auf dieser Seite lernst du, jeden Ton im Violinschlüssel zu lesen und selbst zu schreiben, auch über und
-          unter dem System. Du kennst schon den Violinschlüssel: Er legt das g¹ auf die 2. Linie. Probier zuerst:
+          unter dem System. Du kennst schon den Violinschlüssel, der das g¹ auf die 2. Linie legt, und die
+          [Oktavlagen](/toene/oktavlagen/). Probier zuerst:
       - type: vue-component
         component: NotenSystem
         props:
