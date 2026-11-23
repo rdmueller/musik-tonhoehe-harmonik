@@ -1,4 +1,22 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
 title: Töne lesen und schreiben
-summary: Notensystem, Violin- und Bassschlüssel, Oktavlagen, Halbtöne und Vorzeichen.
-pages: [das-brauchst-du, notensystem, oktavlagen, noten-benennen, bassschluessel, halbtonschritte]
+summary: Notensystem, Oktavlagen, Violin- und Bassschlüssel, Halbtöne und Vorzeichen.
+pages: [das-brauchst-du, notensystem, oktavlagen, noten-benennen, bassschluessel, halbtonschritte, vorzeichen]
+selfAssessment:
+  pages:
+    - exercises:
+        - /toene/notensystem/#zwischenraeume-zaehlen
+        - /toene/notensystem/#g-und-nachbarn
+        - /toene/oktavlagen/#oktave-hoeher
+    - exercises:
+        - /toene/oktavlagen/#oktave-hoeher
+        - /toene/noten-benennen/#noten-lesen
+        - /toene/noten-benennen/#noten-setzen
+    - exercises:
+        - /toene/bassschluessel/#bass-lesen
+        - /toene/bassschluessel/#bass-setzen
+        - /toene/halbtonschritte/#halbtoene-zaehlen
+    - exercises:
+        - /toene/halbtonschritte/#halbtoene-zaehlen
+        - /toene/vorzeichen/#vorzeichen-lesen
+        - /toene/vorzeichen/#vorzeichen-setzen

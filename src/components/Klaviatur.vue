@@ -67,7 +67,7 @@ const bogen = computed(() =>
         :class="markiert.includes(t.halbton) ? 'klaviatur-markiert-schwarz' : 'klaviatur-schwarz'"
       />
       <text
-        v-if="schwarzeNamen || markiert.includes(t.halbton)"
+        v-if="schwarzeNamen"
         :x="t.x + SCHWARZ_BREITE / 2"
         :y="OBEN + SCHWARZ_HOEHE - 6"
         class="klaviatur-name-schwarz"

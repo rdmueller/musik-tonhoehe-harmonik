@@ -421,7 +421,7 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 - [x] Seite toene/oktavlagen: Klaviatur mit Oktavbereichen, NotenLesen mit Oktavlage, matching, generated aus toene
 - [x] Seite toene/bassschluessel: NotenLesen und NotenSetzen im Bassschlüssel, Meldung Terz-Fehler, single-choice, number
 - [x] Seite toene/halbtonschritte: Klaviatur mit Halbtonbögen, generated Halbtöne zählen, multiple-choice, true-false
-- [ ] Seite toene/vorzeichen: NotenLesen und NotenSetzen mit Kreuz, b, Auflösungszeichen, matching Namen, single-choice Taktstrich; Selbsteinschätzung Kapitel toene
+- [x] Seite toene/vorzeichen: NotenLesen und NotenSetzen mit Kreuz, b, Auflösungszeichen, matching Namen, single-choice Taktstrich; Selbsteinschätzung Kapitel toene
 - [ ] Kapitel intervalle: Wiederholungsseite das-brauchst-du (recap intervall-hoeren), Seite grobbestimmung mit NotenLesen intervall-grob, generated, ordering, matching
 - [ ] Seite intervalle/feinbestimmung: NotenLesen intervall-fein, Datendatei intervalle.yaml, generated groß/klein, single-choice, number; Selbsteinschätzung Kapitel intervalle
 - [ ] Kapitel dreiklaenge: Wiederholungsseite das-brauchst-du (recap moll-aufbau), Seite dreiklang-aufbauen mit NotenSetzen dreiklang, single-choice, true-false, ordering

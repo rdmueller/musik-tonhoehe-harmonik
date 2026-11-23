@@ -1,0 +1,220 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Vorzeichen
+description: "Kreuz, b und Auflösungszeichen lesen: erhöhte und erniedrigte Töne benennen und schreiben."
+competencies: [vorzeichen-lesen]
+blocks:
+  - type: section
+    id: einstieg
+    title: Die schwarzen Tasten
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Töne mit Kreuz, b und Auflösungszeichen zu lesen und zu schreiben. Bisher hatten
+          alle Noten Namen von weißen Tasten. Probier, wie die markierte schwarze Taste heißen könnte:
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 2
+          oktaven: 1
+          markiert: [30]
+          boegen: []
+          be: false
+          schwarzeNamen: false
+          oktavnamen: false
+          beschreibung: "Klaviatur von c¹ bis h¹. Die schwarze Taste zwischen f¹ und g¹ ist gelb markiert, ohne Namen."
+        nojs: Eine Klaviatur von c¹ bis h¹. Gelb markiert ist die schwarze Taste zwischen f¹ und g¹.
+      - type: single-choice
+        id: einstieg-schwarze-taste
+        text: Die markierte Taste liegt einen Halbtonschritt über f¹. Wie könnte sie heißen?
+        options:
+          - text: fis¹
+            correct: true
+            info: "An den Namen f wird -is angehängt: fis heißt „f, einen Halbtonschritt höher“."
+          - text: f¹
+            correct: false
+            info: Das f¹ ist die weiße Taste links daneben, einen Halbtonschritt tiefer.
+          - text: g¹
+            correct: false
+            info: Das g¹ ist die weiße Taste rechts daneben.
+        explanation: Schwarze Tasten bekommen den Namen einer weißen Nachbartaste mit einer Endung. Über f liegt fis.
+        links:
+          - title: Vorzeichen (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Vorzeichen_(Musik)"
+  - type: section
+    id: regel
+    title: Kreuz, b und Auflösungszeichen
+    blocks:
+      - type: text
+        text: >-
+          Ein Zeichen vor einer Note verändert den Ton um einen Halbtonschritt. Das **Kreuz** ♯ erhöht: An den Namen
+          kommt -is (f wird fis, c wird cis). Das **b** ♭ erniedrigt: An den Namen kommt -es (d wird des, g wird ges).
+          Drei Namen sind kürzer: e wird es, a wird as, und h wird b.
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 2
+          oktaven: 1
+          markiert: []
+          boegen: []
+          be: false
+          schwarzeNamen: true
+          oktavnamen: false
+          beschreibung: "Klaviatur von c¹ bis h¹, die schwarzen Tasten mit Kreuz-Namen: cis¹, dis¹, fis¹, gis¹, ais¹."
+        nojs: Eine Klaviatur von c¹ bis h¹. Die schwarzen Tasten heißen mit Kreuz cis¹, dis¹, fis¹, gis¹, ais¹.
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 2
+          oktaven: 1
+          markiert: []
+          boegen: []
+          be: true
+          schwarzeNamen: true
+          oktavnamen: false
+          beschreibung: "Dieselbe Klaviatur, die schwarzen Tasten mit b-Namen: des¹, es¹, ges¹, as¹, b¹."
+        nojs: Dieselbe Klaviatur. Mit b heißen die schwarzen Tasten des¹, es¹, ges¹, as¹, b¹.
+      - type: text
+        text: >-
+          Jede schwarze Taste hat also zwei Namen: fis und ges klingen gleich. Welcher Name gilt, sagt das Zeichen vor
+          der Note. Ein Zeichen vor einer Note gilt bis zum nächsten Taktstrich. Das **Auflösungszeichen** ♮ hebt es
+          vorher auf: Der Ton heißt dann wieder wie der Stammton.
+      - type: definition
+        term: Vorzeichen
+        explanation: Kreuz (♯), b (♭) oder Auflösungszeichen (♮) vor einer Note; es erhöht, erniedrigt oder stellt den Stammton wieder her.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Schau vor dem Benennen immer zuerst links neben die Note. Ein vergessenes Zeichen ist der häufigste
+              Fehler: f und fis liegen auf demselben Platz im System.
+  - type: section
+    id: beispiel
+    title: "Beispiel: eine Note mit b"
+    blocks:
+      - type: example
+        title: Im Violinschlüssel steht auf der 3. Linie eine Note mit ♭ davor. Wie heißt sie?
+        blocks:
+          - type: text
+            text: |
+              1. Ohne Zeichen: Von g¹ auf der 2. Linie zwei Schritte hoch, die 3. Linie ist h¹.
+              2. Das ♭ erniedrigt um einen Halbtonschritt.
+              3. h mit ♭ hat einen kurzen Namen: Der Ton heißt **b¹**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: matching
+        id: namen-zuordnen
+        text: Wie heißt der Ton mit dem Zeichen?
+        pairs:
+          - { left: f mit ♯, right: fis }
+          - { left: c mit ♯, right: cis }
+          - { left: e mit ♭, right: es }
+          - { left: h mit ♭, right: b }
+          - { left: a mit ♭, right: as }
+        distractors: [hes, ees]
+        explanation: Kreuz hängt -is an, b hängt -es an. Kürzer sind es, as und b.
+        links:
+          - title: Vorzeichen (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Vorzeichen_(Musik)"
+      - type: vue-component
+        id: vorzeichen-lesen
+        component: NotenLesen
+        props:
+          aufgabe: Wie heißt dieser Ton? Achte auf das Zeichen und gib die Oktavlage an.
+          schluessel: violin
+          tiefste: -4
+          hoechste: 10
+          vorzeichen: true
+          oktave: true
+          beschriftung:
+            stammton: Stammton
+            vorzeichen: Zeichen vor der Note
+            ohne: ohne
+            kreuz: "♯ (-is)"
+            be: "♭ (-es)"
+            oktave: Oktavlage
+            oktaven: [groß (C), klein (c), eingestrichen (c¹), zweigestrichen (c²)]
+          mistakes:
+            - Du liegst zwei Schritte daneben. Im Violinschlüssel zählst du vom g¹ auf der 2. Linie.
+            - "Schau auf das Zeichen vor der Note: ♯ hängt -is an, ♭ hängt -es an."
+            - "Der Name stimmt, die Oktavlage nicht. Unter c¹ ohne Strich, von c¹ bis h¹ mit ¹, ab c² mit ²."
+            - Ein Schritt daneben. Prüf, ob die Note auf einer Linie oder in einem Zwischenraum steht.
+        examples:
+          accepted:
+            - { answer: cis², seed: 1 }
+          rejected:
+            - { answer: c², seed: 1 }
+            - { answer: cis¹, seed: 1 }
+            - { answer: d², seed: 1 }
+      - type: vue-component
+        id: vorzeichen-setzen
+        component: NotenSetzen
+        props:
+          aufgabe: Schreibe {ton} mit dem passenden Zeichen. Tippe ins System, schieb die Note mit „Note höher“ und „Note tiefer“ genau an ihren Platz und wähle das Zeichen.
+          schluessel: violin
+          tiefste: -4
+          hoechste: 10
+          vorzeichen: true
+          beschriftung:
+            system: Notensystem mit Violinschlüssel. Tippe auf eine Linie oder einen Zwischenraum.
+            leer: Noch keine Note gesetzt.
+            hoeher: Note höher
+            tiefer: Note tiefer
+            zeichen: Zeichen vor der Note
+            kein: kein
+            kreuz: ♯
+            be: ♭
+            entfernen: Note entfernen
+          mistakes:
+            - Du liegst zwei Schritte daneben. Zähl noch einmal vom g¹ auf der 2. Linie aus.
+            - "Prüf das Zeichen: -is braucht ein ♯, -es (auch es, as, b) braucht ein ♭."
+            - "Der Stammton stimmt, aber eine Oktave daneben. Ohne Strich heißt unter c¹, mit ¹ von c¹ bis h¹, mit ² ab c²."
+            - Ein Schritt daneben. Zähl noch einmal Linie, Zwischenraum, Linie vom g¹ aus.
+            - "Der Ton klingt gleich, heißt aber anders: fis und ges sind dieselbe Taste. Gefragt ist genau der genannte Name."
+        examples:
+          accepted:
+            - { answer: { p: 5, vz: 1 }, seed: 1 }
+          rejected:
+            - { answer: { p: 5, vz: 0 }, seed: 1 }
+            - { answer: { p: 6, vz: -1 }, seed: 1 }
+            - { answer: { p: 12, vz: 1 }, seed: 1 }
+      - type: single-choice
+        id: bis-zum-taktstrich
+        text: In einem Takt steht vor f¹ ein ♯. Etwas später, im selben Takt, steht noch einmal f¹ ohne Zeichen. Wie heißt der zweite Ton?
+        options:
+          - text: fis¹
+            correct: true
+            info: Das Kreuz gilt bis zum nächsten Taktstrich, also auch für das zweite f¹ im selben Takt.
+          - text: f¹
+            correct: false
+            info: So wäre es erst nach dem Taktstrich oder mit einem Auflösungszeichen ♮ davor.
+          - text: ges¹
+            correct: false
+            info: Das ges¹ klingt wie fis¹, wird aber mit ♭ vor g geschrieben. Hier steht ein ♯ vor f.
+        explanation: Ein Vorzeichen vor einer Note gilt bis zum Taktstrich. Erst ein ♮ oder der neue Takt hebt es auf.
+        links:
+          - title: Vorzeichen (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Vorzeichen_(Musik)"
+      - type: single-choice
+        id: aufloesungszeichen
+        text: Im Takt steht zuerst b¹ (h¹ mit ♭), dann h¹ mit ♮ davor. Wie heißt der zweite Ton?
+        options:
+          - text: h¹
+            correct: true
+            info: Das ♮ hebt das ♭ auf. Der Ton heißt wieder wie der Stammton, h¹.
+          - text: b¹
+            correct: false
+            info: Ohne das ♮ wäre es b¹, weil das ♭ bis zum Taktstrich gilt. Das ♮ hebt es aber auf.
+          - text: his¹
+            correct: false
+            info: Das ♮ erhöht nicht, es stellt nur den Stammton wieder her.
+        explanation: Das Auflösungszeichen ♮ macht ein Kreuz oder b vor dem Taktstrich rückgängig.
+        links:
+          - title: Vorzeichen (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Vorzeichen_(Musik)"
+      - type: text
+        text: >-
+          Geschafft: Du liest und schreibst jeden Ton von C bis a², im Violin- und im Bassschlüssel, mit und ohne
+          Vorzeichen. Im nächsten Kapitel misst du damit den Abstand zwischen zwei Tönen, die Intervalle.
