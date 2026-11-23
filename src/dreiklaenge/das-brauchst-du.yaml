@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Das brauchst du hier
+description: "Kurz wiederholt: wie sich Moll im Aufbau von Dur unterscheidet."
+recap: musik/moll-aufbau
+blocks:
+  - type: text
+    text: >-
+      Kannst du das schon? **Ich kann erklären, worin sich der Aufbau von Moll von Dur unterscheidet.** Eine
+      Dur-Tonleiter hat ihre Halbtonschritte zwischen dem 3. und 4. und zwischen dem 7. und 8. Ton. In der (natürlichen)
+      Moll-Tonleiter liegen sie zwischen dem 2. und 3. und zwischen dem 5. und 6. Ton. Darum liegt der 3. Ton in Moll
+      einen Halbtonschritt tiefer als in Dur: In C-Dur ist es e, in c-Moll es.
+  - type: vue-component
+    component: Klaviatur
+    props:
+      start: 2
+      oktaven: 1
+      markiert: [28, 27]
+      boegen: []
+      be: true
+      schwarzeNamen: false
+      oktavnamen: false
+      beschreibung: "Klaviatur von c¹ bis h¹. Gelb markiert sind e¹, der 3. Ton von C-Dur, und die schwarze Taste es¹ links daneben, der 3. Ton von c-Moll."
+    nojs: >-
+      Eine Klaviatur von c¹ bis h¹. Gelb markiert sind e¹ (3. Ton von C-Dur) und die schwarze Taste es¹ direkt links
+      daneben (3. Ton von c-Moll), einen Halbtonschritt tiefer.
+  - type: text
+    text: >-
+      Prüf dich im Kopf: Was ist der 3. Ton in G-Dur und in g-Moll? (h und b.) Genau dieser Unterschied macht einen
+      Dreiklang zu Dur oder Moll.

@@ -1,0 +1,217 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Dreiklänge aufbauen
+description: "Einen Dreiklang aus Grundton, Terz und Quinte bauen: zwei Terzen übereinander."
+competencies: [dreiklang]
+blocks:
+  - type: section
+    id: einstieg
+    title: Drei Töne übereinander
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, auf jedem Ton einen Dreiklang zu bauen. Du kannst schon Intervalle grob bestimmen.
+          Schau dir diese drei Töne an, die gleichzeitig klingen:
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: -2, vz: 0 }, { p: 0, vz: 0 }, { p: 2, vz: 0 }]
+          akkord: true
+          markiert: []
+          beschreibung: "Violinschlüssel, drei Noten übereinander: c¹ auf der 1. Hilfslinie unten, e¹ auf der 1. Linie, g¹ auf der 2. Linie."
+          klickbar: false
+        nojs: Ein Notensystem mit drei Noten übereinander, c¹ (1. Hilfslinie unten), e¹ (1. Linie) und g¹ (2. Linie).
+      - type: single-choice
+        id: einstieg-abstaende
+        text: Welcher Abstand liegt zwischen zwei Nachbarn in diesem Klang?
+        options:
+          - text: Jeweils eine Terz
+            correct: true
+            info: "c¹ bis e¹ und e¹ bis g¹ sind je drei Stammtöne, beide mitgezählt: zwei Terzen."
+          - text: Jeweils eine Sekunde
+            correct: false
+            info: Eine Sekunde wäre ein Schritt von der Linie in den Zwischenraum direkt darüber. Hier steht Linie über Linie.
+          - text: Jeweils eine Quinte
+            correct: false
+            info: Eine Quinte ist von c¹ bis g¹, vom untersten bis zum obersten Ton, nicht zwischen zwei Nachbarn.
+        explanation: Die drei Töne stehen Linie über Linie. Von einer Linie zur nächsten ist immer eine Terz.
+        links:
+          - title: Dreiklang (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Dreiklang"
+  - type: section
+    id: regel
+    title: Zwei Terzen übereinander
+    blocks:
+      - type: text
+        text: >-
+          Ein **Dreiklang** besteht aus drei Tönen: dem **Grundton** unten, der Terz darüber und der Quinte darüber. Die
+          Quinte ist zugleich eine Terz über der Terz. Du baust einen Dreiklang also, indem du auf den Grundton zwei
+          Terzen schichtest.
+      - type: definition
+        term: Dreiklang
+        explanation: Drei Töne übereinander, Grundton, Terz und Quinte; zwei Terzen geschichtet.
+      - type: definition
+        term: Grundton
+        explanation: Der unterste Ton eines Dreiklangs in Grundstellung; nach ihm heißt der Dreiklang.
+      - type: text
+        text: >-
+          Im Notenbild ist das leicht zu sehen: Steht der Grundton auf einer Linie, stehen Terz und Quinte auf den
+          nächsten beiden Linien. Steht er in einem Zwischenraum, stehen beide in den nächsten Zwischenräumen.
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: 2, vz: 0 }, { p: 4, vz: 0 }, { p: 6, vz: 0 }]
+          akkord: true
+          markiert: [2, 4, 6]
+          beschreibung: "Violinschlüssel, Dreiklang auf g¹: g¹, h¹, d² auf der 2., 3. und 4. Linie, die drei Linien markiert."
+          klickbar: false
+        nojs: Ein Notensystem mit einem Dreiklang auf g¹, Linie über Linie, g¹ (2. Linie), h¹ (3. Linie), d² (4. Linie).
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: 1, vz: 0 }, { p: 3, vz: 0 }, { p: 5, vz: 0 }]
+          akkord: true
+          markiert: [1, 3, 5]
+          beschreibung: "Violinschlüssel, Dreiklang auf f¹: f¹, a¹, c² in den ersten drei Zwischenräumen, die Zwischenräume markiert."
+          klickbar: false
+        nojs: Ein Notensystem mit einem Dreiklang auf f¹, Zwischenraum über Zwischenraum, f¹, a¹, c².
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Linie, Linie, Linie oder Zwischenraum, Zwischenraum, Zwischenraum. Steht eine Note direkt neben ihrem
+              Nachbarn, hast du eine Sekunde statt einer Terz gesetzt.
+  - type: section
+    id: beispiel
+    title: "Beispiel: ein Dreiklang auf d¹"
+    blocks:
+      - type: example
+        title: Welche Töne bilden einen Dreiklang auf d¹?
+        blocks:
+          - type: text
+            text: |
+              1. Grundton d¹: Er hängt unter der 1. Linie, also in einem Zwischenraum.
+              2. Terz darüber: d¹, e¹, f¹, drei Stammtöne. Das f¹ steht im nächsten Zwischenraum.
+              3. Noch eine Terz: f¹, g¹, a¹. Das a¹ steht im übernächsten Zwischenraum.
+              4. Der Dreiklang auf d¹ ist **d¹, f¹, a¹**: Zwischenraum, Zwischenraum, Zwischenraum.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: number
+        id: dreiklang-umfang
+        text: Wie viele Stammtöne zählst du vom Grundton bis zur Quinte eines Dreiklangs, beide mitgezählt?
+        answer: 5
+        tolerance: 0
+        mistakes:
+          - answer: 3
+            message: Drei sind es bis zur Terz. Die Quinte liegt noch eine Terz höher.
+          - answer: 6
+            message: "Zwei Terzen teilen sich die Terz in der Mitte: 3 + 3 − 1 = 5."
+        explanation: "Grundton bis Quinte: fünf Stammtöne, zum Beispiel c, d, e, f, g. Darum heißt der oberste Ton Quinte."
+        links:
+          - title: Dreiklang (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Dreiklang"
+      - type: single-choice
+        id: dreiklang-auf-e
+        text: Welche Stammtöne bilden einen Dreiklang mit dem Grundton e?
+        options:
+          - text: e, g, h
+            correct: true
+            info: "e bis g ist eine Terz, g bis h ist eine Terz. Zusammen ein Dreiklang."
+          - text: e, f, g
+            correct: false
+            info: "e, f, g sind drei Nachbarn, also Sekunden übereinander, kein Dreiklang."
+          - text: e, a, c¹
+            correct: false
+            info: "e bis a ist eine Quarte, keine Terz."
+          - text: e, g, c¹
+            correct: false
+            info: "g bis c¹ ist eine Quarte. Auf die Terz g gehört noch eine Terz: h."
+        explanation: Auf den Grundton kommen zwei Terzen. Auf e also g und h.
+        links:
+          - title: Dreiklang (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Dreiklang"
+      - type: vue-component
+        id: dreiklang-setzen
+        component: DreiklangSetzen
+        props:
+          aufgabe: "Baue auf {grund} einen Dreiklang: Wähle „Terz“ oder „Quinte“, tippe ins System und schieb die Note mit „höher“ und „tiefer“ genau an ihren Platz."
+          schluessel: violin
+          modus: stamm
+          tiefste: -2
+          hoechste: 4
+          beschriftung:
+            system: Notensystem mit Violinschlüssel und dem Grundton. Tippe auf eine Linie oder einen Zwischenraum.
+            setze: Ich setze gerade
+            terz: Terz
+            quinte: Quinte
+            leer: noch nicht gesetzt
+            hoeher: höher
+            tiefer: tiefer
+            zeichen: Zeichen vor der Note
+            kein: kein
+            kreuz: ♯
+            be: ♭
+          mistakes:
+            - Die Terz steht direkt neben dem Grundton, das ist eine Sekunde. Zähl drei Stammtöne, beide mitgezählt.
+            - "Die Quinte steht nicht eine Terz über der Terz: Linie, Linie, Linie oder Zwischenraum, Zwischenraum, Zwischenraum."
+            - Prüf das Zeichen vor der Terz.
+            - Prüf das Zeichen vor der Quinte.
+        examples:
+          accepted:
+            - answer: { terz: { p: 4, vz: 0 }, quinte: { p: 6, vz: 0 } }
+              seed: 1
+          rejected:
+            - answer: { terz: { p: 3, vz: 0 }, quinte: { p: 6, vz: 0 } }
+              seed: 1
+            - answer: { terz: { p: 4, vz: 0 }, quinte: { p: 5, vz: 0 } }
+              seed: 1
+      - type: vue-component
+        id: dreiklang-setzen-bass
+        component: DreiklangSetzen
+        props:
+          aufgabe: "Baue im Bassschlüssel auf {grund} einen Dreiklang: Wähle „Terz“ oder „Quinte“ und setze sie über den Grundton."
+          schluessel: bass
+          modus: stamm
+          tiefste: -4
+          hoechste: 4
+          beschriftung:
+            system: Notensystem mit Bassschlüssel und dem Grundton. Tippe auf eine Linie oder einen Zwischenraum.
+            setze: Ich setze gerade
+            terz: Terz
+            quinte: Quinte
+            leer: noch nicht gesetzt
+            hoeher: höher
+            tiefer: tiefer
+            zeichen: Zeichen vor der Note
+            kein: kein
+            kreuz: ♯
+            be: ♭
+          mistakes:
+            - Die Terz steht direkt neben dem Grundton, das ist eine Sekunde. Zähl drei Stammtöne, beide mitgezählt.
+            - "Die Quinte steht nicht eine Terz über der Terz: Linie, Linie, Linie oder Zwischenraum, Zwischenraum, Zwischenraum."
+            - Prüf das Zeichen vor der Terz.
+            - Prüf das Zeichen vor der Quinte.
+        examples:
+          accepted:
+            - answer: { terz: { p: 3, vz: 0 }, quinte: { p: 5, vz: 0 } }
+              seed: 1
+          rejected:
+            - answer: { terz: { p: 2, vz: 0 }, quinte: { p: 5, vz: 0 } }
+              seed: 1
+      - type: true-false
+        id: linie-linie-linie
+        text: Steht der Grundton eines Dreiklangs auf einer Linie, stehen Terz und Quinte auch auf Linien.
+        answer: true
+        explanation: Von einer Linie zur nächsten ist eine Terz. Zwei Terzen führen also zu den nächsten beiden Linien.
+        links:
+          - title: Dreiklang (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Dreiklang"
+      - type: text
+        text: >-
+          Jetzt baust du auf jedem Ton einen Dreiklang. Als Nächstes entscheidest du, ob er Dur oder Moll ist, und
+          schreibst ihn in Kurzschrift.

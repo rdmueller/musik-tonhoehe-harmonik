@@ -47,6 +47,12 @@ const linien = computed(() => {
   });
 });
 
+// in a chord, each further sign moves left, so that signs of notes close together do not overlap
+const versatz = computed(() => {
+  let k = 0;
+  return props.noten.map((note) => (props.akkord && note.vz !== 0 ? 12 * k++ : 0));
+});
+
 function tippen(event: MouseEvent): void {
   if (!props.klickbar) return;
   const svg = event.currentTarget;
@@ -117,7 +123,12 @@ function tippen(event: MouseEvent): void {
       class="noten-system-linie"
     />
     <g v-for="(note, n) in noten" :key="`n${n}`">
-      <text v-if="note.vz !== 0" :x="x(n, noten.length, akkord) - 24" :y="y(note.p) + 6" class="noten-system-zeichen">
+      <text
+        v-if="note.vz !== 0"
+        :x="x(n, noten.length, akkord) - 24 - (versatz[n] ?? 0)"
+        :y="y(note.p) + 6"
+        class="noten-system-zeichen"
+      >
         {{ zeichen(note.vz === 2 ? 0 : note.vz) }}
       </text>
       <ellipse
