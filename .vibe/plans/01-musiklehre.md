@@ -423,7 +423,7 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 - [x] Seite toene/halbtonschritte: Klaviatur mit Halbtonbögen, generated Halbtöne zählen, multiple-choice, true-false
 - [x] Seite toene/vorzeichen: NotenLesen und NotenSetzen mit Kreuz, b, Auflösungszeichen, matching Namen, single-choice Taktstrich; Selbsteinschätzung Kapitel toene
 - [x] Kapitel intervalle: Wiederholungsseite das-brauchst-du (recap intervall-hoeren), Seite grobbestimmung mit NotenLesen intervall-grob, generated, ordering, matching
-- [ ] Seite intervalle/feinbestimmung: NotenLesen intervall-fein, Datendatei intervalle.yaml, generated groß/klein, single-choice, number; Selbsteinschätzung Kapitel intervalle
+- [x] Seite intervalle/feinbestimmung: NotenLesen intervall-fein, Datendatei intervalle.yaml, generated groß/klein, single-choice, number; Selbsteinschätzung Kapitel intervalle
 - [ ] Kapitel dreiklaenge: Wiederholungsseite das-brauchst-du (recap moll-aufbau), Seite dreiklang-aufbauen mit NotenSetzen dreiklang, single-choice, true-false, ordering
 - [ ] Seite dreiklaenge/dur-moll-kurzschrift: NotenLesen dreiklang mit Kurzschrift, NotenSetzen aus Kurzschrift, matching, single-choice; Selbsteinschätzung Kapitel dreiklaenge, Probetest der App prüfen
 <!-- tasks: pages (10 added): the other pages or screens, after the pattern -->

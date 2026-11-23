@@ -1,0 +1,202 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Intervalle fein bestimmen
+description: "Sekunden und Terzen genau bestimmen: klein oder groß, durch Abzählen der Halbtonschritte."
+competencies: [intervall-qualitaet]
+blocks:
+  - type: section
+    id: einstieg
+    title: Zwei Sekunden, nicht gleich groß
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Sekunden und Terzen genau zu bestimmen: ob sie klein oder groß sind. Du kannst
+          schon grob bestimmen und Halbtonschritte zählen. Schau dir die beiden Sekunden an:
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 2
+          oktaven: 1
+          markiert: []
+          boegen:
+            - { von: 28, bis: 29 }
+            - { von: 29, bis: 30 }
+            - { von: 30, bis: 31 }
+          be: false
+          schwarzeNamen: false
+          oktavnamen: false
+          beschreibung: "Klaviatur von c¹ bis h¹. Ein Bogen von e¹ zu f¹, zwei Bögen von f¹ über die schwarze Taste zu g¹."
+        nojs: >-
+          Eine Klaviatur von c¹ bis h¹. Von e¹ zu f¹ führt ein Bogen. Von f¹ zu g¹ führen zwei Bögen, über die schwarze
+          Taste dazwischen.
+      - type: single-choice
+        id: einstieg-sekunden
+        text: e¹–f¹ und f¹–g¹ sind beide Sekunden. Welche ist kleiner?
+        options:
+          - text: e¹–f¹
+            correct: true
+            info: Von e¹ zu f¹ ist es ein Bogen, also ein Halbtonschritt.
+          - text: f¹–g¹
+            correct: false
+            info: Von f¹ zu g¹ sind es zwei Bögen, über die schwarze Taste.
+          - text: Beide sind gleich groß.
+            correct: false
+            info: Grob sind beide Sekunden. Zählst du die Bögen, sind sie aber verschieden groß.
+        explanation: Grob gleich, fein verschieden. Darum gibt es kleine und große Sekunden.
+        links:
+          - title: Intervall (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Intervall_(Musik)"
+  - type: section
+    id: regel
+    title: Erst grob, dann Halbtonschritte zählen
+    blocks:
+      - type: text
+        text: >-
+          Bei der Feinbestimmung bestimmst du zuerst grob: Sekunde oder Terz? Dann zählst du die Halbtonschritte vom
+          unteren zum oberen Ton, schwarze Tasten mitgezählt. Jetzt zählen auch die Vorzeichen: Sie verschieben einen
+          Ton um einen Halbtonschritt.
+      - type: table
+        caption: Sekunden und Terzen in Halbtonschritten
+        header: [Intervall, Halbtonschritte, Beispiel]
+        rows:
+          - [kleine Sekunde, "1", e¹–f¹]
+          - [große Sekunde, "2", f¹–g¹]
+          - [kleine Terz, "3", d¹–f¹]
+          - [große Terz, "4", c¹–e¹]
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 2
+          oktaven: 1
+          markiert: [24, 28]
+          boegen:
+            - { von: 24, bis: 25 }
+            - { von: 25, bis: 26 }
+            - { von: 26, bis: 27 }
+            - { von: 27, bis: 28 }
+          be: false
+          schwarzeNamen: false
+          oktavnamen: false
+          beschreibung: "Klaviatur von c¹ bis h¹. c¹ und e¹ sind gelb markiert, dazwischen vier Bögen: eine große Terz."
+        nojs: >-
+          Eine Klaviatur von c¹ bis h¹. Gelb markiert sind c¹ und e¹. Vier Bögen führen von c¹ zu e¹, über zwei schwarze
+          Tasten und d¹: vier Halbtonschritte, eine große Terz.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Achte auf e–f und h–c: Dort ist der Schritt zwischen zwei weißen Tasten nur ein Halbtonschritt. Und schau
+              vor dem Zählen nach Vorzeichen: e¹–g¹ ist eine kleine Terz, e¹–gis¹ eine große.
+  - type: section
+    id: beispiel
+    title: "Beispiel: die Terz von a bis c¹"
+    blocks:
+      - type: example
+        title: Ist a–c¹ eine kleine oder eine große Terz?
+        blocks:
+          - type: text
+            text: |
+              1. Grob: a, h, c¹, drei Stammtöne, also eine Terz.
+              2. Fein: Zähl die Tasten nach a, schwarz und weiß: die schwarze Taste, h, c¹. Das sind 3 Halbtonschritte; von h zu c¹ war nur einer.
+              3. 3 Halbtonschritte: a–c¹ ist eine **kleine Terz**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: number
+        id: halbtoene-grosse-terz
+        text: Wie viele Halbtonschritte hat eine große Terz?
+        answer: 4
+        tolerance: 0
+        mistakes:
+          - answer: 3
+            message: "3 Halbtonschritte hat die kleine Terz. Die große ist einen Halbtonschritt größer."
+          - answer: 2
+            message: 2 Halbtonschritte hat die große Sekunde, nicht die Terz.
+        explanation: "Große Terz: 4 Halbtonschritte, zum Beispiel c¹–e¹ mit zwei schwarzen Tasten dazwischen."
+        links:
+          - title: Intervall (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Intervall_(Musik)"
+      - type: generated
+        id: klein-oder-gross
+        given:
+          i: { pick: 1, from: { data: intervalle } }
+        task:
+          text: "Ist {{i.unten}}–{{i.oben}} eine kleine oder eine große {{i.art}}?"
+        answer:
+          value: "i.name"
+          compare: { choice: "[i.name, i.falsch]" }
+        mistakes:
+          - value: "i.falsch"
+            message: "Zähl noch einmal die Halbtonschritte, schwarze Tasten mit. Achte auf e–f, h–c und auf Vorzeichen."
+        hint: "Kleine Sekunde 1, große Sekunde 2, kleine Terz 3, große Terz 4 Halbtonschritte."
+        steps:
+          - "Von {{i.unten}} bis {{i.oben}} sind es {{i.halbtoene}} Halbtonschritte, also eine {{answer}}."
+      - type: vue-component
+        id: intervall-fein
+        component: IntervallLesen
+        props:
+          aufgabe: Welches Intervall liegt zwischen den beiden Tönen? Bestimme es fein.
+          schluessel: violin
+          art: fein
+          tiefste: -2
+          hoechste: 6
+          vorzeichen: true
+          auswahl: Intervall
+          mistakes:
+            - Bei der Feinbestimmung zählen Halbtonschritte.
+            - Bei der Feinbestimmung zählen Halbtonschritte.
+            - "Zwischen e–f oder h–c liegt nur ein Halbtonschritt. Zähl noch einmal."
+            - Schau auf die Vorzeichen. Sie verschieben einen Ton um einen Halbtonschritt.
+            - "Erst grob bestimmen: Zähl die Stammtöne, beide mitgezählt. Sekunde oder Terz?"
+            - Zähl die Halbtonschritte noch einmal, schwarze Tasten mit.
+        examples:
+          accepted:
+            - { answer: kleine Terz, seed: 1 }
+          rejected:
+            - { answer: große Terz, seed: 1 }
+            - { answer: kleine Sekunde, seed: 1 }
+      - type: vue-component
+        id: intervall-fein-bass
+        component: IntervallLesen
+        props:
+          aufgabe: Welches Intervall liegt zwischen den beiden Tönen im Bassschlüssel? Bestimme es fein.
+          schluessel: bass
+          art: fein
+          tiefste: -2
+          hoechste: 6
+          vorzeichen: true
+          auswahl: Intervall
+          mistakes:
+            - Bei der Feinbestimmung zählen Halbtonschritte.
+            - Bei der Feinbestimmung zählen Halbtonschritte.
+            - "Zwischen e–f oder h–c liegt nur ein Halbtonschritt. Zähl noch einmal."
+            - Schau auf die Vorzeichen. Sie verschieben einen Ton um einen Halbtonschritt.
+            - "Erst grob bestimmen: Zähl die Stammtöne, beide mitgezählt. Sekunde oder Terz?"
+            - Zähl die Halbtonschritte noch einmal, schwarze Tasten mit.
+        examples:
+          accepted:
+            - { answer: kleine Terz, seed: 1 }
+          rejected:
+            - { answer: große Terz, seed: 1 }
+      - type: single-choice
+        id: e-g-terz
+        text: Welche Terz ist e¹–g¹?
+        options:
+          - text: eine kleine Terz
+            correct: true
+            info: "e¹, f¹, die schwarze Taste, g¹: 3 Halbtonschritte, weil e¹–f¹ nur ein Halbtonschritt ist."
+          - text: eine große Terz
+            correct: false
+            info: "Groß wäre sie mit 4 Halbtonschritten, zum Beispiel e¹–gis¹. Zwischen e¹ und f¹ fehlt die schwarze Taste."
+          - text: eine große Sekunde
+            correct: false
+            info: "e¹, f¹, g¹ sind drei Stammtöne: grob ist das eine Terz, keine Sekunde."
+        explanation: Wer e–f als Ganztonschritt zählt, hält e¹–g¹ für groß. Es sind aber nur 3 Halbtonschritte.
+        links:
+          - title: Intervall (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Intervall_(Musik)"
+      - type: text
+        text: >-
+          Geschafft: Grob und fein bestimmst du jetzt Sekunden und Terzen genau. Im nächsten Kapitel schichtest du zwei
+          Terzen übereinander und baust daraus Dreiklänge.
