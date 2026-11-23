@@ -1,0 +1,239 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Noten benennen
+description: "Noten im Violinschlüssel benennen: auf Linien, in Zwischenräumen und auf Hilfslinien."
+competencies: [noten-benennen]
+blocks:
+  - type: section
+    id: einstieg
+    title: Ein Ton unter dem System
+    blocks:
+      - type: text
+        text: >-
+          Danach liest du jeden Ton im Violinschlüssel, auch auf den kurzen Hilfslinien über und unter dem System, und
+          schreibst ihn selbst. Du kennst schon den Violinschlüssel: Er legt das g¹ auf die 2. Linie. Probier zuerst:
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: -2, vz: 0 }]
+          akkord: false
+          markiert: []
+          beschreibung: Violinschlüssel, eine Note auf einer kurzen Linie unter dem System.
+          klickbar: false
+        nojs: Ein Notensystem mit Violinschlüssel. Eine Note steht auf einer kurzen Linie unter der 1. Linie.
+      - type: single-choice
+        id: einstieg-c1
+        text: Die Note steht auf einer kurzen Linie unter dem System. Wie heißt der Ton?
+        options:
+          - text: c¹
+            correct: true
+            info: "Von e¹ auf der 1. Linie zwei Schritte abwärts: d¹ unter der Linie, dann c¹ auf der kurzen Linie."
+          - text: d¹
+            correct: false
+            info: "Das d¹ steht direkt unter der 1. Linie, ohne eigene Linie. Die Note hier hat eine kurze Linie."
+          - text: a¹
+            correct: false
+            info: "Das a¹ steht im 2. Zwischenraum, mitten im System. Diese Note steht unter dem System."
+          - text: e¹
+            correct: false
+            info: "Das e¹ steht auf der 1. Linie des Systems. Diese Note steht noch zwei Schritte tiefer."
+        explanation: >-
+          Unter der 1. Linie geht das Abzählen einfach weiter: e¹, d¹, c¹. Für das c¹ braucht man eine kurze Linie,
+          eine Hilfslinie.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+  - type: section
+    id: regel
+    title: Von g¹ aus abzählen
+    blocks:
+      - type: text
+        text: >-
+          Im Notensystem steht jeder Ton auf einer Linie oder in einem Zwischenraum. Gehst du einen Schritt höher, von
+          der Linie in den Zwischenraum darüber oder vom Zwischenraum auf die nächste Linie, kommt der nächste
+          Stammton: c, d, e, f, g, a, h, dann wieder c. Nach dem h beginnt eine neue Oktave, darum heißt der Ton über
+          h¹ nicht c¹, sondern c².
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten:
+            - { p: 0, vz: 0 }
+            - { p: 1, vz: 0 }
+            - { p: 2, vz: 0 }
+            - { p: 3, vz: 0 }
+            - { p: 4, vz: 0 }
+            - { p: 5, vz: 0 }
+            - { p: 6, vz: 0 }
+            - { p: 7, vz: 0 }
+            - { p: 8, vz: 0 }
+          akkord: false
+          markiert: [2]
+          beschreibung: "Violinschlüssel mit neun Noten von der 1. bis zur 5. Linie: e¹, f¹, g¹, a¹, h¹, c², d², e², f². Die 2. Linie mit g¹ ist markiert."
+          klickbar: false
+          namen: [e¹, f¹, g¹, a¹, h¹, c², d², e², f²]
+          nummern: true
+        nojs: >-
+          Ein Notensystem mit Violinschlüssel, die Linien von unten nummeriert. Neun Noten steigen Schritt für Schritt:
+          e¹ (1. Linie), f¹, g¹ (2. Linie, markiert), a¹, h¹ (3. Linie), c², d² (4. Linie), e², f² (5. Linie).
+      - type: text
+        text: >-
+          Die markierte 2. Linie ist dein Startpunkt: Dort steht g¹. Von ihm zählst du nach oben oder unten. Über und
+          unter dem System helfen kurze **Hilfslinien**. Sie gelten wie die Linien des Systems.
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten:
+            - { p: -4, vz: 0 }
+            - { p: -3, vz: 0 }
+            - { p: -2, vz: 0 }
+            - { p: -1, vz: 0 }
+            - { p: 9, vz: 0 }
+            - { p: 10, vz: 0 }
+          akkord: false
+          markiert: []
+          beschreibung: "Violinschlüssel mit Noten auf Hilfslinien: unten a, h, c¹, d¹, oben g² und a²."
+          klickbar: false
+          namen: [a, h, c¹, d¹, g², a²]
+        nojs: >-
+          Ein Notensystem mit Violinschlüssel. Unter dem System: a (2. Hilfslinie unten), h, c¹ (1. Hilfslinie unten),
+          d¹ (direkt unter der 1. Linie). Über dem System: g² (direkt über der 5. Linie) und a² (1. Hilfslinie oben).
+      - type: definition
+        term: Hilfslinie
+        explanation: Eine kurze Linie über oder unter dem Notensystem, für einen Ton, der nicht mehr ins System passt.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Linien zählen immer von unten: Die unterste ist die 1. Linie. Eine Note **auf** einer Linie wird von der
+              Linie durchgestrichen, eine Note **im** Zwischenraum liegt zwischen zwei Linien.
+  - type: section
+    id: beispiel
+    title: "Beispiel: der Ton auf der 1. Hilfslinie oben"
+    blocks:
+      - type: example
+        title: Welcher Ton steht auf der 1. Hilfslinie über dem System?
+        blocks:
+          - type: text
+            text: |
+              1. Start auf der 2. Linie: g¹.
+              2. Die 5. Linie ist drei Linien höher. Jeder Schritt Linie → Zwischenraum → Linie zählt: a¹, h¹ (3. Linie), c², d² (4. Linie), e², f² (5. Linie).
+              3. Über der 5. Linie kommt g², auf der 1. Hilfslinie oben a².
+              4. Der Ton heißt **a²**: Nach h¹ hat eine neue Oktave begonnen.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: matching
+        id: linien-zuordnen
+        text: Welcher Ton steht im Violinschlüssel auf welcher Linie?
+        pairs:
+          - { left: 1. Linie, right: e¹ }
+          - { left: 2. Linie, right: g¹ }
+          - { left: 3. Linie, right: h¹ }
+          - { left: 4. Linie, right: d² }
+          - { left: 5. Linie, right: f² }
+        distractors: [f¹]
+        explanation: >-
+          Auf den Linien stehen e¹, g¹, h¹, d², f², also jeder zweite Stammton. Das f¹ steht im 1. Zwischenraum.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+      - type: vue-component
+        id: noten-lesen
+        component: NotenLesen
+        props:
+          aufgabe: Wie heißt dieser Ton? Gib auch die Oktavlage an.
+          schluessel: violin
+          tiefste: -4
+          hoechste: 10
+          vorzeichen: false
+          oktave: true
+          beschriftung: &lesen
+            stammton: Stammton
+            vorzeichen: Zeichen vor der Note
+            ohne: ohne
+            kreuz: "♯ (-is)"
+            be: "♭ (-es)"
+            oktave: Oktavlage
+            oktaven: [groß (C), klein (c), eingestrichen (c¹), zweigestrichen (c²)]
+          mistakes:
+            - Du hast die Note wie im Bassschlüssel gelesen. Im Violinschlüssel zählst du vom g¹ auf der 2. Linie.
+            - "Schau auf das Zeichen vor der Note: Steht dort ♯, ♭ oder nichts?"
+            - "Der Name stimmt, die Oktavlage nicht. Denk daran: Nach h¹ beginnt mit c² die nächste Oktave."
+            - Du bist einen Schritt danebengelandet. Prüf, ob die Note auf einer Linie oder in einem Zwischenraum steht.
+        examples:
+          accepted:
+            - { answer: c², seed: 1 }
+          rejected:
+            - { answer: e, seed: 1 }
+            - { answer: c¹, seed: 1 }
+            - { answer: d², seed: 1 }
+      - type: vue-component
+        id: noten-setzen
+        component: NotenSetzen
+        props:
+          aufgabe: Schreibe {ton}. Tippe auf die Linie oder den Zwischenraum.
+          schluessel: violin
+          tiefste: -4
+          hoechste: 10
+          vorzeichen: false
+          beschriftung: &setzen
+            system: Notensystem mit Violinschlüssel. Tippe auf eine Linie oder einen Zwischenraum.
+            leer: Noch keine Note gesetzt.
+            hoeher: Note höher
+            tiefer: Note tiefer
+            zeichen: Zeichen vor der Note
+            kein: kein
+            kreuz: ♯
+            be: ♭
+            entfernen: Note entfernen
+          mistakes:
+            - Das ist der Platz im Bassschlüssel. Im Violinschlüssel zählst du vom g¹ auf der 2. Linie.
+            - "Prüf das Zeichen vor der Note: Braucht der Ton ein ♯ oder ein ♭?"
+            - "Der Stammton stimmt, aber eine Oktave daneben. Zähl vom g¹ aus: Nach h¹ kommt c²."
+            - Ein Schritt daneben. Zähl noch einmal Linie, Zwischenraum, Linie vom g¹ aus.
+            - Der Ton klingt gleich, heißt aber anders. Gefragt ist genau der genannte Name.
+        examples:
+          accepted:
+            - { answer: { p: 5, vz: 0 }, seed: 1 }
+          rejected:
+            - { answer: { p: 3, vz: 0 }, seed: 1 }
+            - { answer: { p: 12, vz: 0 }, seed: 1 }
+            - { answer: { p: 6, vz: 0 }, seed: 1 }
+      - type: ordering
+        id: toene-ordnen
+        text: "Ordne die Töne von tief nach hoch."
+        items: [a, c¹, e¹, h¹, d², a²]
+        explanation: >-
+          Erst zählt die Oktave (klein, eingestrichen, zweigestrichen), dann innerhalb der Oktave c, d, e, f, g, a, h.
+          Darum liegt a tiefer als c¹ und h¹ tiefer als d².
+        links:
+          - title: Oktave (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Oktave"
+      - type: single-choice
+        id: zwischenraum-ueber-h1
+        text: Im Violinschlüssel steht eine Note im Zwischenraum direkt über der 3. Linie. Wie heißt der Ton?
+        options:
+          - text: c²
+            correct: true
+            info: "Auf der 3. Linie steht h¹. Einen Schritt höher kommt c², mit dem eine neue Oktave beginnt."
+          - text: h¹
+            correct: false
+            info: "Das h¹ steht auf der 3. Linie selbst, nicht im Zwischenraum darüber."
+          - text: c¹
+            correct: false
+            info: "Das c¹ steht auf der 1. Hilfslinie unter dem System. Nach h¹ beginnt eine neue Oktave."
+          - text: d²
+            correct: false
+            info: "Das d² steht auf der 4. Linie, einen Schritt über dem gesuchten Ton."
+        explanation: "Von g¹ (2. Linie) aufwärts: a¹, h¹ (3. Linie), c² (Zwischenraum darüber)."
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+      - type: text
+        text: >-
+          Jetzt liest und schreibst du Töne im Violinschlüssel. Als Nächstes geht es um die Oktavlagen: wie du sagst,
+          welches c genau gemeint ist.

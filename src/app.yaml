@@ -1,10 +1,9 @@
 # yaml-language-server: $schema=../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
 format: 2
-# The strand of the learning map the app stays in, <subject>/<strand> (e.g. mathematik/stochastik); then each page
-# names its competencies. none: the app is on no strand, and no page names competencies. A unit app across the strands
-# of a subject whose map allows it names subject: <subject> (e.g. franzoesisch) instead of strand.
-strand: none
-title: Platzhalter
-intro: Dieses Kapitel hält den Platz frei, bis der geplante Inhalt da ist.
+strand: musik/tonhoehe-harmonik
+title: "Musiklehre: Töne, Intervalle, Dreiklänge"
+intro: >-
+  Du liest und schreibst Töne im Violin- und Bassschlüssel, bestimmst Intervalle grob und fein und schreibst Dur- und
+  Moll-Dreiklänge in Kurzschrift. Am Ende zeigt dir der Probetest, was schon sitzt.
 languages: [de]
-chapters: [thema]
+chapters: [toene]
