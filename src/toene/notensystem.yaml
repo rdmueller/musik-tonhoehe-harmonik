@@ -70,6 +70,13 @@ blocks:
         nojs: >-
           Ein Notensystem mit Violinschlüssel, die Linien von unten nummeriert. Die 2. Linie ist markiert. Die Schnecke
           des Schlüssels kreist um diese Linie. Auf ihr steht eine Note: g¹.
+      - type: text
+        text: >-
+          Die Töne der weißen Tasten heißen **Stammtöne**: c, d, e, f, g, a, h, danach wieder c. Jeder Schritt im System,
+          von der Linie in den Zwischenraum oder vom Zwischenraum auf die Linie, führt zum nächsten Stammton.
+      - type: definition
+        term: Stammton
+        explanation: "Einer der sieben Töne c, d, e, f, g, a, h, die Töne der weißen Tasten."
       - type: definition
         term: Violinschlüssel
         explanation: Der Notenschlüssel, der das g¹ auf die 2. Linie legt; auch G-Schlüssel genannt.
@@ -154,13 +161,13 @@ blocks:
             info: Die Schnecke des Violinschlüssels kreist um die 2. Linie. Dort steht g¹.
           - text: Die 1. Linie, auf ihr steht g¹
             correct: false
-            info: Auf der 1. Linie steht e¹, zwei Schritte unter g¹.
+            info: Die 1. Linie ist die unterste, eine Linie unter der Linie des Schlüssels.
           - text: Die 3. Linie, auf ihr steht g¹
             correct: false
             info: Die 3. Linie ist die mittlere Linie. Dort steht h¹, über dem g¹.
           - text: Die 4. Linie, auf ihr steht g¹
             correct: false
-            info: Auf der 4. Linie steht im Violinschlüssel d², weit über dem g¹.
+            info: Die 4. Linie liegt weit oben im System, nicht dort, wo die Schnecke kreist.
         explanation: Der Violinschlüssel heißt auch G-Schlüssel, weil er die Linie des g¹ festlegt, die 2. Linie.
         links:
           - title: Notenschlüssel (Wikipedia)

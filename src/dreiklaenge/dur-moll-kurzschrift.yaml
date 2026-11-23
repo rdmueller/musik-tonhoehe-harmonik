@@ -57,14 +57,12 @@ blocks:
           Ein **Dur-Dreiklang** hat unten eine große Terz (4 Halbtonschritte) und darüber eine kleine Terz (3). Ein
           **Moll-Dreiklang** hat es umgekehrt: unten die kleine Terz, darüber die große. Vom Grundton bis zur Quinte
           sind es in beiden 7 Halbtonschritte.
-      - type: text
-        text: >-
-          In der **Kurzschrift** schreibst du nur den Grundton: einen Großbuchstaben für Dur, einen Kleinbuchstaben
-          für Moll. C heißt C-Dur, c heißt c-Moll. Mit Vorzeichen bleibt es gleich: Fis ist Fis-Dur, fis ist fis-Moll,
-          B ist B-Dur, es ist es-Moll.
       - type: definition
-        term: Kurzschrift
-        explanation: Ein Dreiklang mit dem Namen seines Grundtons, groß geschrieben für Dur (C), klein für Moll (c).
+        term: Dur-Dreiklang
+        explanation: Ein Dreiklang mit großer Terz unten und kleiner Terz oben.
+      - type: definition
+        term: Moll-Dreiklang
+        explanation: Ein Dreiklang mit kleiner Terz unten und großer Terz oben.
       - type: table
         caption: Vier Dreiklänge und ihre Kurzschrift
         header: [Dreiklang, Töne, Kurzschrift]
@@ -73,6 +71,14 @@ blocks:
           - [c-Moll, "c, es, g", c]
           - [D-Dur, "d, fis, a", D]
           - [h-Moll, "h, d, fis", h]
+      - type: text
+        text: >-
+          In der **Kurzschrift** schreibst du nur den Grundton: einen Großbuchstaben für Dur, einen Kleinbuchstaben
+          für Moll. C heißt C-Dur, c heißt c-Moll. Mit Vorzeichen bleibt es gleich: Fis ist Fis-Dur, fis ist fis-Moll,
+          B ist B-Dur (auf b, dem h mit ♭), es ist es-Moll.
+      - type: definition
+        term: Kurzschrift
+        explanation: Ein Dreiklang mit dem Namen seines Grundtons, groß geschrieben für Dur (C), klein für Moll (c).
       - type: note
         title: Merke
         blocks:
@@ -80,7 +86,8 @@ blocks:
             text: >-
               Bestimme zuerst die untere Terz: 4 Halbtonschritte heißt Dur und Großbuchstabe, 3 Halbtonschritte heißt
               Moll und Kleinbuchstabe. Benenne den Dreiklang immer nach dem untersten Ton, und vergiss sein Vorzeichen
-              nicht.
+              nicht. Achtung: In der Kurzschrift heißt der Großbuchstabe Dur, nicht große Oktave. Die Kurzschrift sagt
+              nichts über die Oktavlage: Ein e-Moll-Dreiklang auf dem großen E heißt trotzdem e.
   - type: section
     id: beispiel
     title: "Beispiel: e, g, h"
@@ -219,4 +226,4 @@ blocks:
       - type: text
         text: >-
           Geschafft: Du liest und schreibst Töne in beiden Schlüsseln, bestimmst Intervalle grob und fein und schreibst
-          Dur- und Moll-Dreiklänge in Kurzschrift. Prüf jetzt im Probetest auf der Startseite, was schon sitzt.
+          Dur- und Moll-Dreiklänge in Kurzschrift. Prüf jetzt mit der Selbsteinschätzung auf der Startseite, deinem Probetest, was schon sitzt.

@@ -52,7 +52,7 @@ blocks:
         explanation: Drei Töne übereinander, Grundton, Terz und Quinte; zwei Terzen geschichtet.
       - type: definition
         term: Grundton
-        explanation: Der unterste Ton eines Dreiklangs in Grundstellung; nach ihm heißt der Dreiklang.
+        explanation: Der unterste Ton eines Dreiklangs, wenn die Töne als Terzen übereinander stehen; nach ihm heißt der Dreiklang.
       - type: text
         text: >-
           Im Notenbild ist das leicht zu sehen: Steht der Grundton auf einer Linie, stehen Terz und Quinte auf den

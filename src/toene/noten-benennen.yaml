@@ -59,8 +59,8 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Linien zählen immer von unten: Die unterste ist die 1. Linie. Eine Note **auf** einer Linie wird von der
-              Linie durchgestrichen, eine Note **im** Zwischenraum liegt zwischen zwei Linien.
+              Prüf vor dem Zählen, ob die Note durchgestrichen ist (auf der Linie) oder zwischen zwei Linien liegt (im
+              Zwischenraum). Ein verwechselter Platz macht dich einen Stammton falsch.
       - type: vue-component
         component: NotenSystem
         props:

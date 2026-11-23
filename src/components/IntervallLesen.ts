@@ -101,7 +101,9 @@ export function mitHalbtonStammschritt(task: Task): boolean {
   return false;
 }
 
-const mitVorzeichen = (task: Task) => task.unten.vz !== 0 || task.oben.vz !== 0;
+/** Whether the accidentals change the size: the interval of the stem tones has another number of semitones. */
+const mitVorzeichen = (task: Task) =>
+  halbtonAbstand({ ...task.unten, vz: 0 }, { ...task.oben, vz: 0 }) !== halbtonAbstand(task.unten, task.oben);
 
 /** The other quality of the same size: kleine for große and the other way round. */
 const andereGroesse = (name: string) => FEIN[FEIN.indexOf(name as (typeof FEIN)[number]) ^ 1] ?? "";

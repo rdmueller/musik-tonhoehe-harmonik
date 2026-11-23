@@ -5,10 +5,11 @@ recap: musik/moll-aufbau
 blocks:
   - type: text
     text: >-
-      Kannst du das schon? **Ich kann erklären, worin sich der Aufbau von Moll von Dur unterscheidet.** Eine
-      Dur-Tonleiter hat ihre Halbtonschritte zwischen dem 3. und 4. und zwischen dem 7. und 8. Ton. In der (natürlichen)
-      Moll-Tonleiter liegen sie zwischen dem 2. und 3. und zwischen dem 5. und 6. Ton. Darum liegt der 3. Ton in Moll
-      einen Halbtonschritt tiefer als in Dur: In C-Dur ist es e, in c-Moll es.
+      Kannst du das schon? **Ich kann erklären, worin sich der Aufbau von Moll von Dur unterscheidet.** Eine Tonleiter
+      ist eine Reihe von Tönen Schritt für Schritt, zum Beispiel c, d, e, f, g, a, h, c. In einer Dur-Tonleiter liegen
+      die Halbtonschritte zwischen dem 3. und 4. und dem 7. und 8. Ton, in einer Moll-Tonleiter zwischen dem 2. und 3.
+      und dem 5. und 6. Ton. Wichtig für die Dreiklänge ist nur eins: Der 3. Ton liegt in Moll einen Halbtonschritt
+      tiefer als in Dur. In C-Dur ist er e, in c-Moll es.
   - type: vue-component
     component: Klaviatur
     props:

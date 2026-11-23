@@ -4,7 +4,7 @@
 # Archetype, null until chosen in Explore. Allowed values: explainer, interactive, quiz.
 archetype: explainer
 # Current phase. Allowed values: explore, plan, code, commit.
-phase: code
+phase: commit
 # prePushFailures: failed pre-push runs, written by the hook.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
@@ -61,6 +61,21 @@ Der Inhalt kommt vom Ersteller (Themenliste der Lernkontrolle). Abgedeckte Kompe
   eine Festigung und Wiederholung, keine Einführung.
 - Keine der Kompetenzen hat auf der Karte eine übende App (`practisedBy` leer), auch nicht durch „Musik erleben“.
 - Hessen-Gymnasium-Lehrplan für Musik gibt es auf der Karte nicht (`curricula` leer).
+
+### Behoben nach dem Lernenden-Check der ganzen App
+
+- „Probetest“ heißt überall „Selbsteinschätzung auf der Startseite, dein Probetest“ (Startseite und letzte Seite).
+- „Stammton“ wird auf `notensystem` erklärt und steht im Glossar; neu im Glossar: Halbtonschritt, Ganztonschritt,
+  Taktstrich, Dur- und Moll-Dreiklang; „Takt“ und „Taktstrich“ werden auf `vorzeichen` erklärt.
+- `oktavlagen`: Zählen der Tasten einheitlich („acht weiße Tasten, beide mitgezählt“), Grammatik im Lösungsweg.
+- `notensystem`: Rückmeldungen nennen keine Tonnamen, die erst später kommen.
+- Wiederholung Dur/Moll steht jetzt direkt vor `dur-moll-kurzschrift` und erklärt „Tonleiter“.
+- `dur-moll-kurzschrift`: Hinweis, dass der Großbuchstabe in der Kurzschrift Dur heißt, nicht große Oktave.
+- `IntervallLesen`: Die Meldung „Vorzeichen“ kommt nur, wenn die Zeichen die Größe ändern (cis–dis nicht).
+- Übergangssätze zwischen den Seiten angepasst (Grob- zu Feinbestimmung, Ende der Halbtonseite, Wiederholung
+  Intervalle); Merke auf `noten-benennen` wiederholt die Regel von `notensystem` nicht mehr.
+- Nicht geändert: die allgemeine Rückmeldung „Lies dazu noch einmal den Text über der Aufgabe“ bei Zuordnen und
+  Ordnen und das Wort „Seite“ in der Selbsteinschätzung kommen von der Laufzeit, nicht von der App.
 
 ### Wie die Lernenden üben (Skill `lernapps-exercise-patterns`; kein Musik-Verweis, nächster: Mathematik)
 
@@ -429,9 +444,9 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 <!-- tasks: pages (10 added): the other pages or screens, after the pattern -->
 - [x] Update the content guide so that it describes the app as built (`app-content-matches`).
 - [x] Run `npx --no -- lernapps check` until it passes.
-- [ ] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
+- [x] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
       Compare each with its sketch.
-- [ ] Do the whole-app check of skill `lernapps-learner-check`. Fix what it finds and write under "Notes" what you
+- [x] Do the whole-app check of skill `lernapps-learner-check`. Fix what it finds and write under "Notes" what you
       fixed.
 
 ## Commit

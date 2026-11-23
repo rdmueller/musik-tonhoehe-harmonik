@@ -95,8 +95,8 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Liest du eine Bassnote wie im Violinschlüssel, liegst du immer zwei Stammtöne daneben: Auf der 1. Linie
-              steht im Bass G, nicht e. Schau darum zuerst auf den Schlüssel.
+              Liest du eine Bassnote wie im Violinschlüssel, liegst du zwei Stammtöne und eine Oktavlage daneben: Auf der 1. Linie
+              steht im Bass G, nicht e¹. Schau darum zuerst auf den Schlüssel.
   - type: section
     id: beispiel
     title: "Beispiel: der unterste Zwischenraum"

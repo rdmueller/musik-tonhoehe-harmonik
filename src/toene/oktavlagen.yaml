@@ -21,10 +21,10 @@ blocks:
           be: false
           schwarzeNamen: false
           oktavnamen: false
-          beschreibung: "Klaviatur mit zwei Oktaven. Zwei Tasten sind gelb markiert: das c ganz links und das c sieben weiße Tasten weiter rechts."
+          beschreibung: "Klaviatur mit zwei Oktaven. Zwei Tasten sind gelb markiert: das c ganz links und das nächste c weiter rechts, acht weiße Tasten weit, beide mitgezählt."
         nojs: >-
           Eine Klaviatur mit zwei Oktaven. Gelb markiert sind zwei weiße Tasten links von zwei schwarzen Tasten: die
-          erste ganz links, die zweite sieben weiße Tasten weiter rechts.
+          erste ganz links, die zweite beim nächsten c: acht weiße Tasten, beide mitgezählt.
       - type: single-choice
         id: einstieg-zwei-c
         text: Beide markierten Tasten sind ein c. Was stimmt?
@@ -34,7 +34,7 @@ blocks:
             info: Auf der Klaviatur klingen Tasten weiter rechts höher. Gleicher Name heißt nicht gleiche Höhe.
           - text: Beide klingen genau gleich hoch.
             correct: false
-            info: Gleich hoch klingt nur dieselbe Taste. Die beiden c liegen sieben weiße Tasten auseinander.
+            info: Gleich hoch klingt nur dieselbe Taste. Die beiden c liegen eine Oktave auseinander, acht weiße Tasten, beide mitgezählt.
           - text: Die linke klingt höher als die rechte.
             correct: false
             info: Auf der Klaviatur wird es nach links tiefer, nicht höher.
@@ -131,7 +131,7 @@ blocks:
             message: "Der Buchstabe stimmt, aber das ist nicht genau eine Oktave höher. Zähl acht weiße Tasten nach rechts."
         hint: "Die Oktavlagen von tief nach hoch: C, c, c¹, c². Eine Oktave höher ist der nächste Schritt in dieser Reihe."
         steps:
-          - "{{t.name}} liegt in der {{t.oktave}}. Eine Oktave höher, acht weiße Tasten weiter rechts, liegt {{answer}}."
+          - "{{t.name}} gehört zur Oktave: {{t.oktave}}. Eine Oktave höher, acht weiße Tasten weiter, beide mitgezählt, liegt {{answer}}."
       - type: ordering
         id: c-ordnen
         text: Ordne die vier c von tief nach hoch.
@@ -149,7 +149,7 @@ blocks:
             info: Nach h beginnt eine neue Oktave. Die nächste weiße Taste ist darum c¹, nicht c.
           - text: c
             correct: false
-            info: Das c ist der erste Ton der kleinen Oktave, sieben Tasten links vom h.
+            info: Das c ist der erste Ton der kleinen Oktave, ganz links, sechs weiße Tasten vor dem h.
           - text: h¹
             correct: false
             info: Das h¹ liegt eine ganze Oktave über dem h, nicht direkt daneben.

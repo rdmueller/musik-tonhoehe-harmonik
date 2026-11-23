@@ -6,7 +6,7 @@ blocks:
   - type: text
     text: >-
       Kannst du das schon? **Ich kann hohe und tiefe Töne unterscheiden und ordnen.** Und: **Ich kann die Tasten der
-      Klaviatur benennen und das C finden.** Auf der Klaviatur klingen die Tasten nach rechts höher. Die weißen Tasten heißen
+      Klaviatur benennen und das C finden.** (Gemeint ist jedes c.) Auf der Klaviatur klingen die Tasten nach rechts höher. Die weißen Tasten heißen
       c, d, e, f, g, a, h, danach beginnt es wieder mit c. Das c liegt immer links von zwei schwarzen Tasten, das f
       links von drei schwarzen Tasten.
   - type: vue-component

@@ -76,11 +76,12 @@ blocks:
       - type: text
         text: >-
           Jede schwarze Taste hat also zwei Namen: fis und ges klingen gleich. Welcher Name gilt, sagt das Zeichen vor
-          der Note. Ein Zeichen vor einer Note gilt bis zum nächsten Taktstrich. Das **Auflösungszeichen** ♮ hebt es
+          der Note. Musik ist in Takte eingeteilt; senkrechte Striche durch das System, die **Taktstriche**, trennen sie.
+          Ein Zeichen vor einer Note gilt bis zum nächsten Taktstrich. Das **Auflösungszeichen** ♮ hebt es
           vorher auf: Der Ton heißt dann wieder wie der Stammton.
       - type: definition
         term: Vorzeichen
-        explanation: Kreuz (♯), b (♭) oder Auflösungszeichen (♮) vor einer Note; es erhöht, erniedrigt oder stellt den Stammton wieder her.
+        explanation: "Kreuz (♯), b (♭) oder Auflösungszeichen (♮) vor einer Note; es erhöht, erniedrigt oder stellt den Stammton wieder her. Genau genommen heißt das Zeichen direkt vor einer Note Versetzungszeichen."
       - type: note
         title: Merke
         blocks:

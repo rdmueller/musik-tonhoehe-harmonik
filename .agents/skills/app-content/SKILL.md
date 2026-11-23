@@ -43,7 +43,8 @@ Ids und „Ich kann …“-Sätze wörtlich von der Karte (`https://lernapps.net
   → `src/intervalle/feinbestimmung.yaml` (in dieser Version nur kl./gr. Sekunde und kl./gr. Terz).
 
 **Kapitel `dreiklaenge` – Dreiklänge**
-- Wiederholung `src/dreiklaenge/das-brauchst-du.yaml`: recap `musik/moll-aufbau`.
+- Wiederholung `src/dreiklaenge/das-brauchst-du.yaml`: recap `musik/moll-aufbau`, steht vor `dur-moll-kurzschrift`, der
+  ersten Seite, die sie braucht.
 - `dreiklang` – Ich kann einen Dreiklang aus Grundton, Terz und Quinte aufbauen.
   → `src/dreiklaenge/dreiklang-aufbauen.yaml`.
 - `dreiklangsarten` – Ich kann Dur- und Moll-Dreiklänge hören, aufbauen und unterscheiden.
@@ -61,7 +62,8 @@ Die Übungs-ids jeder Seite stehen in ihrer YAML-Datei; die Selbsteinschätzung 
 - Anfang: Ziel der Seite in Lernendenworten („Danach …“). Ende: was man jetzt kann und was als Nächstes kommt;
   Kapitelende mit Rückblick.
 - Höchstens 350 Wörter Lesetext je Seite.
-- Jedes Kapitel beginnt mit einer Wiederholungsseite `das-brauchst-du` (recap, ohne Übung).
+- Eine Wiederholungsseite `das-brauchst-du` (recap, ohne Übung) steht vor der ersten Seite, die sie braucht: in
+  `toene` und `intervalle` am Kapitelanfang, in `dreiklaenge` vor `dur-moll-kurzschrift`.
 - Keine Geschichte: die Seiten tragen sich über ihre Aufgaben.
 - Selbsteinschätzung in jeder `chapter.yaml`, 2–3 Übungen je Inhaltsseite, bevorzugt `NotenLesen`, `NotenSetzen` und
   `generated`; die der App über alle Kapitel ist der Probetest.
@@ -73,14 +75,17 @@ Die Übungs-ids jeder Seite stehen in ihrer YAML-Datei; die Selbsteinschätzung 
   as, b (für h erniedrigt).
 - Oktavlagen: große Oktave (C … H), kleine Oktave (c … h), eingestrichene Oktave (c¹ … h¹), zweigestrichene Oktave
   (c² … h²). Oktavzahl hochgestellt (c¹, nicht c' oder c1).
-- Zeichen: Kreuz (♯), b (♭), Auflösungszeichen (♮). „Vorzeichen“ für das Zeichen vor einer Note.
+- Zeichen: Kreuz (♯), b (♭), Auflösungszeichen (♮). „Vorzeichen“ für das Zeichen vor einer Note (Schulwort; die
+  Definition nennt einmal „Versetzungszeichen“). „Halbtonschritt“ und „Ganztonschritt“, nicht „Halbton“/„Ganzton“.
 - Linien des Notensystems von unten gezählt (1. bis 5. Linie), Zwischenräume ebenso.
 - Intervalle ausgeschrieben: Prime, Sekunde, Terz, Quarte, Quinte, Sexte, Septime, Oktave; „große Terz“, in
   Aufgaben auch abgekürzt „gr. 3“, „kl. 2“. „Grobbestimmung“ = Stufen abzählen, „Feinbestimmung“ = Halbtöne abzählen.
-- Kurzschrift für Dreiklänge: Großbuchstabe = Dur (C, Fis, B), Kleinbuchstabe = Moll (c, fis, b). Nur Dur und Moll,
+- Kurzschrift für Dreiklänge: Großbuchstabe = Dur (C, Fis, B), Kleinbuchstabe = Moll (c, fis, b), unabhängig von der
+  Oktavlage (die Seite sagt das ausdrücklich, weil Großbuchstaben sonst die große Oktave meinen). Nur Dur und Moll,
   keine verminderten und übermäßigen Dreiklänge. Nicht „Cm“ (Akkordsymbol) verwenden.
-- Glossar: Notensystem, Violinschlüssel, Bassschlüssel, Hilfslinie, Oktave, Halbton, Ganzton, Stammton, Vorzeichen,
-  Intervall, Dreiklang, Grundton, Kurzschrift.
+- Glossar (`definition`-Blöcke): Notensystem, Stammton, Violinschlüssel, Oktave, Hilfslinie, Bassschlüssel,
+  Halbtonschritt, Ganztonschritt, Vorzeichen, Intervall, Dreiklang, Grundton, Dur-Dreiklang,
+  Moll-Dreiklang, Kurzschrift.
 
 ## Exercise patterns
 
