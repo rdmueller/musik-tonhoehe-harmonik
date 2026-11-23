@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Das brauchst du hier
+description: "Kurz wiederholt: Tonwiederholung, Schritt und Sprung in einer Melodie."
+recap: musik/intervall-hoeren
+blocks:
+  - type: text
+    text: >-
+      Kannst du das schon? **Ich kann hören und beschreiben, ob eine Melodie einen Ton wiederholt, in Schritten geht
+      oder springt.** In den Noten siehst du das so: Eine Tonwiederholung bleibt auf demselben Platz. Ein Schritt geht
+      zum nächsten Platz, von der Linie in den Zwischenraum oder umgekehrt. Ein Sprung überspringt mindestens einen
+      Platz.
+  - type: vue-component
+    component: NotenSystem
+    props:
+      schluessel: violin
+      noten:
+        - { p: 2, vz: 0 }
+        - { p: 2, vz: 0 }
+        - { p: 3, vz: 0 }
+        - { p: 4, vz: 0 }
+        - { p: 7, vz: 0 }
+      akkord: false
+      markiert: []
+      beschreibung: "Violinschlüssel mit fünf Noten: g¹, noch einmal g¹, a¹, h¹, dann ein Sprung hinauf zu e²."
+      klickbar: false
+      namen: [g¹, g¹, a¹, h¹, e²]
+    nojs: >-
+      Ein Notensystem mit fünf Noten nacheinander: g¹ und noch einmal g¹ (Tonwiederholung), a¹ und h¹ (Schritte), dann
+      e² (ein Sprung über c² und d² hinweg).
+  - type: text
+    text: >-
+      Prüf dich im Kopf: Wo wiederholt sich ein Ton, wo geht die Melodie in Schritten, wo springt sie? Wenn du es
+      sagen kannst, kannst du jetzt jeden Abstand genau benennen.

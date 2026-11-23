@@ -1,0 +1,203 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Intervalle grob bestimmen
+description: "Den Abstand zweier Töne abzählen und benennen: Prime, Sekunde, Terz bis Oktave."
+competencies: [intervall-benennen]
+blocks:
+  - type: section
+    id: einstieg
+    title: Wie weit ist es von g¹ nach h¹?
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, den Abstand zwischen zwei Tönen abzuzählen und ihm seinen Namen zu geben. Du
+          kennst schon Schritte und Sprünge. Probier zuerst:
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: 2, vz: 0 }, { p: 4, vz: 0 }]
+          akkord: false
+          markiert: []
+          beschreibung: Violinschlüssel, zwei Noten nacheinander, g¹ auf der 2. Linie und h¹ auf der 3. Linie.
+          klickbar: false
+          namen: [g¹, h¹]
+        nojs: Ein Notensystem mit zwei Noten nacheinander, g¹ auf der 2. Linie und h¹ auf der 3. Linie.
+      - type: number
+        id: einstieg-zaehlen
+        text: Wie viele Stammtöne zählst du von g¹ bis h¹, wenn du beide Töne mitzählst?
+        answer: 3
+        tolerance: 0
+        mistakes:
+          - answer: 2
+            message: "Zähl beide Töne mit: g¹, a¹, h¹."
+          - answer: 1
+            message: "Zwischen g¹ und h¹ liegt nur a¹. Gefragt ist aber mit beiden Tönen: g¹, a¹, h¹."
+        explanation: "g¹, a¹, h¹: drei Stammtöne. Dieser Abstand heißt Terz, nach der Zahl drei."
+        links:
+          - title: Intervall (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Intervall_(Musik)"
+  - type: section
+    id: regel
+    title: Stammtöne abzählen, beide mitgezählt
+    blocks:
+      - type: text
+        text: >-
+          Den Abstand zwischen zwei Tönen nennt man **Intervall**. Bei der Grobbestimmung zählst du die Stammtöne vom
+          unteren bis zum oberen Ton, beide mitgezählt. Die Zahl gibt dem Intervall seinen Namen, nach lateinischen
+          Zahlwörtern. Vorzeichen spielen dabei keine Rolle: c bis e und c bis es sind beide eine Terz.
+      - type: definition
+        term: Intervall
+        explanation: Der Abstand zwischen zwei Tönen, benannt nach der Zahl der Stammtöne, beide Töne mitgezählt.
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten:
+            - { p: -2, vz: 0 }
+            - { p: -1, vz: 0 }
+            - { p: 0, vz: 0 }
+            - { p: 1, vz: 0 }
+            - { p: 2, vz: 0 }
+            - { p: 3, vz: 0 }
+            - { p: 4, vz: 0 }
+            - { p: 5, vz: 0 }
+          akkord: false
+          markiert: []
+          beschreibung: "Violinschlüssel mit acht Noten von c¹ bis c², darunter die Zahlen 1 bis 8: so viele Stammtöne sind es von c¹ bis zu diesem Ton."
+          klickbar: false
+          namen: ["1", "2", "3", "4", "5", "6", "7", "8"]
+        nojs: >-
+          Ein Notensystem mit acht Noten von c¹ bis c², nummeriert 1 bis 8: c¹ (1), d¹ (2), e¹ (3), f¹ (4), g¹ (5), a¹
+          (6), h¹ (7), c² (8). Von c¹ zu einem Ton ist das Intervall so groß wie seine Zahl.
+      - type: table
+        caption: Die Namen der Intervalle
+        header: [Stammtöne, Intervall]
+        rows:
+          - ["1", Prime]
+          - ["2", Sekunde]
+          - ["3", Terz]
+          - ["4", Quarte]
+          - ["5", Quinte]
+          - ["6", Sexte]
+          - ["7", Septime]
+          - ["8", Oktave]
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Zähl immer den Startton mit. Im Notenbild hilft dir das: Von einer Linie zur nächsten Linie ist eine
+              Terz, von einer Linie zum Zwischenraum direkt darüber eine Sekunde, von einer Linie zur übernächsten
+              Linie eine Quinte.
+  - type: section
+    id: beispiel
+    title: "Beispiel: von d¹ bis a¹"
+    blocks:
+      - type: example
+        title: Welches Intervall liegt zwischen d¹ und a¹?
+        blocks:
+          - type: text
+            text: |
+              1. Zähl die Stammtöne aufwärts, d¹ mitgezählt: d¹ (1), e¹ (2), f¹ (3), g¹ (4), a¹ (5).
+              2. Fünf Stammtöne: Das Intervall ist eine **Quinte**.
+              3. Im Notenbild: d¹ hängt unter der 1. Linie, a¹ steht im 2. Zwischenraum. Das sind zwei Zwischenräume weiter, so wie von einer Linie zur übernächsten Linie.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: matching
+        id: notenbild-zuordnen
+        text: Welches Intervall zeigt das Notenbild?
+        pairs:
+          - { left: beide Noten auf demselben Platz, right: Prime }
+          - { left: von einer Linie zum Zwischenraum direkt darüber, right: Sekunde }
+          - { left: von einer Linie zur nächsten Linie, right: Terz }
+          - { left: von einer Linie zur übernächsten Linie, right: Quinte }
+        distractors: [Quarte]
+        explanation: >-
+          Linie zur nächsten Linie überspringt einen Zwischenraum: drei Stammtöne, eine Terz. Noch eine Linie weiter
+          sind es fünf, eine Quinte.
+        links:
+          - title: Intervall (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Intervall_(Musik)"
+      - type: generated
+        id: stammtoene-zaehlen
+        given:
+          a: { pick: 1, from: { data: stammtoene } }
+          b: { pick: 1, from: { data: stammtoene } }
+        where:
+          - "b.stufe > a.stufe"
+          - "b.stufe - a.stufe <= 7"
+        task:
+          text: "Wie viele Stammtöne zählst du von {{a.name}} aufwärts bis {{b.name}}, beide mitgezählt?"
+        answer:
+          value: "b.stufe - a.stufe + 1"
+          compare: { number: { format: integer } }
+        mistakes:
+          - value: "b.stufe - a.stufe"
+            message: Du hast den Startton nicht mitgezählt. Beim Intervall zählen beide Töne.
+          - value: "b.stufe - a.stufe - 1"
+            message: Du hast nur die Töne dazwischen gezählt. Zähl den unteren und den oberen Ton dazu.
+        hint: "Sag die Stammtöne der Reihe nach auf und zähl mit: c, d, e, f, g, a, h, dann c¹ und so weiter."
+        steps:
+          - "Von {{a.name}} bis {{b.name}} sind es {{answer}} Stammtöne, beide mitgezählt."
+      - type: vue-component
+        id: intervall-grob
+        component: IntervallLesen
+        props:
+          aufgabe: Welches Intervall liegt zwischen den beiden Tönen? Bestimme es grob.
+          schluessel: violin
+          art: grob
+          tiefste: -2
+          hoechste: 4
+          vorzeichen: false
+          auswahl: Intervall
+          mistakes:
+            - Ein Intervall zu klein. Hast du den Startton mitgezählt?
+            - Ein Intervall zu groß. Zähl vom unteren Ton aus, nicht von einem Ton davor.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+        examples:
+          accepted:
+            - { answer: Sexte, seed: 1 }
+          rejected:
+            - { answer: Quinte, seed: 1 }
+            - { answer: Septime, seed: 1 }
+      - type: vue-component
+        id: intervall-grob-bass
+        component: IntervallLesen
+        props:
+          aufgabe: Welches Intervall liegt zwischen den beiden Tönen im Bassschlüssel? Bestimme es grob, Vorzeichen zählen nicht.
+          schluessel: bass
+          art: grob
+          tiefste: -2
+          hoechste: 6
+          vorzeichen: true
+          auswahl: Intervall
+          mistakes:
+            - Ein Intervall zu klein. Hast du den Startton mitgezählt?
+            - Ein Intervall zu groß. Zähl vom unteren Ton aus, nicht von einem Ton davor.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+            - Bei der Grobbestimmung zählen nur die Stammtöne.
+        examples:
+          accepted:
+            - { answer: Sexte, seed: 1 }
+          rejected:
+            - { answer: Quinte, seed: 1 }
+            - { answer: Septime, seed: 1 }
+      - type: ordering
+        id: intervalle-ordnen
+        text: Ordne die Intervalle vom kleinsten zum größten.
+        items: [Sekunde, Terz, Quarte, Quinte, Sexte]
+        explanation: Die Namen folgen den Zahlen 2, 3, 4, 5, 6. Je mehr Stammtöne, desto größer das Intervall.
+        links:
+          - title: Intervall (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Intervall_(Musik)"
+      - type: text
+        text: >-
+          Jetzt bestimmst du jedes Intervall grob. Als Nächstes schaust du genauer hin: Eine Terz kann klein oder groß
+          sein.

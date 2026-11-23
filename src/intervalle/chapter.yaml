@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Intervalle bestimmen
+summary: Den Abstand zweier Töne grob (Prime bis Oktave) und fein (kleine und große Sekunde und Terz) bestimmen.
+pages: [das-brauchst-du, grobbestimmung]
