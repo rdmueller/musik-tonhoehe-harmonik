@@ -417,7 +417,7 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
       change: change the pattern first.
       Creator: ja
 - [x] Kapitel toene, Wiederholungsseite das-brauchst-du (recap klaviatur-tasten) und Komponente Klaviatur (Anzeige, nojs) mit Test
-- [ ] Seite toene/notensystem: Violinschlüssel und Linien, Figur Notensystem, NotenLesen im System, matching, single-choice, true-false
+- [x] Seite toene/notensystem: Violinschlüssel und Linien, Figur Notensystem, NotenLesen im System, matching, single-choice, true-false
 - [ ] Seite toene/oktavlagen: Klaviatur mit Oktavbereichen, NotenLesen mit Oktavlage, matching, generated aus toene
 - [ ] Seite toene/bassschluessel: NotenLesen und NotenSetzen im Bassschlüssel, Meldung Terz-Fehler, single-choice, number
 - [ ] Seite toene/halbtonschritte: Klaviatur mit Halbtonbögen, generated Halbtöne zählen, multiple-choice, true-false
