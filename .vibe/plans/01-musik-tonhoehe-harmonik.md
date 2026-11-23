@@ -468,12 +468,12 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 - [x] **Checkpoint:** publish. Show what the app does and the preview link from the comment "Vorschau der App". Ask
       whether it may go online. Stop and wait for the yes.
       Creator: ja
-- [ ] Load skill `lernapps-commit`. Publish as skill `lernapps-github` says: `work` into `main` as one squash commit,
+- [x] Load skill `lernapps-commit`. Publish as skill `lernapps-github` says: `work` into `main` as one squash commit,
       the run of `Pages` watched to its end.
-- [ ] Open the address the job `deploy` printed and confirm that the app shows. Never use a derived address.
-- [ ] Load skill `lernapps-listing`. Write the entry under "Entry draft" as it says, with the creator's answer to
+- [x] Open the address the job `deploy` printed and confirm that the app shows. Never use a derived address.
+- [x] Load skill `lernapps-listing`. Write the entry under "Entry draft" as it says, with the creator's answer to
       "Finding the app".
-- [ ] Fill the retrospective.
+- [x] Fill the retrospective.
 - [ ] Commit this plan on `main` and push it: the listing check and the review read it there.
 - [ ] **Checkpoint:** list. Open the listing pull request as skill `lernapps-listing` says, without asking first: the
       pull request is the review. See it to "bestanden", then show the creator the pull request and its result.
@@ -481,23 +481,59 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 
 ### Entry draft
 
-<!-- YAML valid against the entry schema the listing skill names. Only known values, never invented. -->
-
 ```yaml
+# yaml-language-server: $schema=https://lernapps.net/apps/schemas/entry.v1.schema.json
+title: "Musiklehre: Töne, Intervalle, Dreiklänge"
+subject: musik
+grades: [8]
+summary: >-
+  Du liest und schreibst Töne im Violin- und Bassschlüssel, bestimmst Intervalle grob und fein und baust Dur- und
+  Moll-Dreiklänge. Jede Aufgabe zieht neue Töne, und falsche Antworten sagen dir, was du übersehen hast. Am Ende
+  zeigt ein Probetest, was schon sitzt.
+url: https://rdmueller.github.io/musik-tonhoehe-harmonik/
+strand: musik/tonhoehe-harmonik
+keywords: [Intervalle bestimmen, Bassschlüssel üben, Dreiklänge Dur Moll, Noten lesen Klasse 8, Musiktheorie Lernkontrolle]
+creator: { name: "@rdmueller", url: "https://github.com/rdmueller" }
+source: https://github.com/rdmueller/musik-tonhoehe-harmonik
+commit: c3ac54e3c06a4d8870496febbf0a0fee9383cf42
+fitness:
+  account: false
+  install: false
+  storage: device
+  thirdParty: none
+  checked: false
 ```
 
 ## Retrospective
 
-<!-- At the end of Commit, before the listing pull request. Facts, short, no names. Read by review and evals. -->
-
 ### Phases reached
 
-<!-- Last phase completed, checkpoints passed. E.g. "commit; confirmed, published". -->
+Commit; Checkpoints Recherche, Plan, Musterseite und Veröffentlichen bestanden; veröffentlicht unter
+https://rdmueller.github.io/musik-tonhoehe-harmonik/ (Commit c3ac54e). Eintrag in den Katalog offen.
 
 ### Creator turns after the plan
 
-<!-- Number of creator messages after the confirmation, topic of each. Target: at most 3. -->
+5 Nachrichten nach der Bestätigung des Plans:
+1. „ja“ zur Musterseite (Checkpoint).
+2. Frage nach einem Namensschema für weitere Musik-Apps → Umbenennung in `musik-tonhoehe-harmonik`.
+3. Repository angelegt (ein Klick nur für den Ersteller: hier können keine Repositories angelegt werden).
+4. „ja“ zum Veröffentlichen (Checkpoint).
+5. Name im Katalogeintrag: GitHub-Name.
+Über dem Ziel von 3: zwei Checkpoints, eine nötige Handlung des Erstellers, eine Namensfrage, die das Explore
+hätte klären können.
 
 ### Where I had to guess
 
-<!-- Each gap in plan, skills, messages or answers, and your choice. "None" if none. -->
+- Kein Vorbild aus dem Katalog genannt: keins.
+- Keine Geschichte; Anrede „du“ (Klasse 8, Wiederholung vor einer Lernkontrolle).
+- Tonumfang: Violinschlüssel kleines a bis a², Bassschlüssel großes C bis e¹; keine Doppelvorzeichen, keine
+  Vorzeichnung am Zeilenanfang; eis, his, ces, fes nicht als Aufgabe.
+- Dreiklänge auf C, D, E, F, G, A, H, B, Es, Fis.
+- Komponenten statt der geplanten einen `NotenLesen` mit `art`: getrennt in `NotenLesen`, `IntervallLesen`,
+  `DreiklangLesen`, `DreiklangSetzen`, weil jede Komponente eine Fehlerliste für den Tutor hat.
+- Seite `oktavlagen` vor `noten-benennen` (Befund des Lernenden-Checks), Wiederholung Dur/Moll vor
+  `dur-moll-kurzschrift` statt am Kapitelanfang.
+- „Vorzeichen“ für das Zeichen vor einer Note (Schulwort), „Versetzungszeichen“ nur in der Definition.
+- Name im Explore zweimal geändert (`musik-lernkontrolle`, `musiklehre`): das Schema `musik-<Strang>` hätte schon
+  bei `init` gepasst; der Plan fragt nicht nach einem Namensschema.
+- Der Branch für den Katalogeintrag folgt der Vorgabe dieser Sitzung (`claude/pensive-knuth-ilrnhu`) statt `add-<id>`.
