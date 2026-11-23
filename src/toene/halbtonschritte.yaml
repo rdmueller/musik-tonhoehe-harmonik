@@ -1,0 +1,165 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Halbtonschritte
+description: "Halbtonschritte auf der Klaviatur abzählen: warum e–f und h–c kleiner sind als die anderen Schritte."
+competencies: [halbtonschritte]
+blocks:
+  - type: section
+    id: einstieg
+    title: Eine Lücke fehlt
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Halbtonschritte auf der Klaviatur abzuzählen. Das brauchst du gleich für die
+          Vorzeichen und später für die Intervalle. Schau dir die beiden markierten Tasten an:
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 1
+          oktaven: 1
+          markiert: [16, 17]
+          boegen: []
+          be: false
+          schwarzeNamen: false
+          oktavnamen: false
+          beschreibung: "Klaviatur mit einer Oktave von c bis h. Die Tasten e und f sind gelb markiert."
+        nojs: Eine Klaviatur mit einer Oktave, c bis h. Gelb markiert sind die weißen Tasten e und f.
+      - type: single-choice
+        id: einstieg-e-f
+        text: Liegt zwischen e und f eine schwarze Taste?
+        options:
+          - text: Nein, e und f liegen direkt nebeneinander.
+            correct: true
+            info: Zwischen e und f fehlt die schwarze Taste. Die Gruppe aus zwei schwarzen Tasten endet vor e, die aus drei beginnt nach f.
+          - text: Ja, wie zwischen allen weißen Tasten.
+            correct: false
+            info: Zwischen c und d liegt eine schwarze Taste, zwischen e und f aber nicht.
+        explanation: Zwischen e und f, und genauso zwischen h und c, liegt keine schwarze Taste. Das macht diese Schritte kleiner.
+        links:
+          - title: Halbton (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Halbton"
+  - type: section
+    id: regel
+    title: Von Taste zu Taste
+    blocks:
+      - type: text
+        text: >-
+          Ein **Halbtonschritt** geht von einer Taste zur allernächsten, egal ob weiß oder schwarz. Von c zu d sind es
+          deshalb zwei Halbtonschritte: c zur schwarzen Taste, dann zu d. Zwei Halbtonschritte zusammen heißen
+          **Ganztonschritt**. Zwischen e und f und zwischen h und c fehlt die schwarze Taste: Dort ist der Schritt
+          von einer weißen Taste zur nächsten nur ein Halbtonschritt.
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 1
+          oktaven: 2
+          markiert: []
+          boegen:
+            - { von: 12, bis: 13 }
+            - { von: 13, bis: 14 }
+            - { von: 16, bis: 17 }
+            - { von: 23, bis: 24 }
+          be: false
+          schwarzeNamen: false
+          oktavnamen: false
+          beschreibung: "Klaviatur von c bis h¹ mit Bögen: zwei Bögen von c über die schwarze Taste zu d, je ein Bogen von e zu f und von h zu c¹."
+        nojs: >-
+          Eine Klaviatur von c bis h¹. Jeder Bogen ist ein Halbtonschritt: von c zur schwarzen Taste und weiter zu d
+          sind es zwei Bögen, also ein Ganztonschritt. Von e zu f und von h zu c¹ ist es nur ein Bogen.
+      - type: definition
+        term: Halbtonschritt
+        explanation: Der kleinste Schritt auf der Klaviatur, von einer Taste zur allernächsten, schwarz oder weiß.
+      - type: definition
+        term: Ganztonschritt
+        explanation: Zwei Halbtonschritte zusammen, zum Beispiel von c über die schwarze Taste zu d.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Zwischen den weißen Tasten e–f und h–c liegt nur ein Halbtonschritt. Alle anderen Nachbarn unter den
+              weißen Tasten liegen einen Ganztonschritt auseinander.
+  - type: section
+    id: beispiel
+    title: "Beispiel: von d bis g"
+    blocks:
+      - type: example
+        title: Wie viele Halbtonschritte liegen zwischen d und g?
+        blocks:
+          - type: text
+            text: |
+              1. Zähl jede Taste nach d, schwarz oder weiß: die schwarze Taste, e, f, die schwarze Taste, g.
+              2. Das sind fünf Schritte. Von e zu f war nur ein Halbtonschritt, weil keine schwarze Taste dazwischen liegt.
+              3. Von d bis g sind es **5 Halbtonschritte**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: multiple-choice
+        id: halbton-paare
+        text: Welche weißen Nachbartasten liegen nur einen Halbtonschritt auseinander? Wähle alle passenden.
+        options:
+          - text: e und f
+            correct: true
+            info: Zwischen e und f liegt keine schwarze Taste.
+          - text: h und c¹
+            correct: true
+            info: Zwischen h und c¹ liegt keine schwarze Taste, hier beginnt die neue Oktave.
+          - text: c und d
+            correct: false
+            info: Zwischen c und d liegt eine schwarze Taste, also ein Ganztonschritt.
+          - text: f und g
+            correct: false
+            info: Zwischen f und g liegt eine schwarze Taste, also ein Ganztonschritt.
+        explanation: Nur e–f und h–c haben keine schwarze Taste zwischen sich.
+        links:
+          - title: Halbton (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Halbton"
+      - type: generated
+        id: halbtoene-zaehlen
+        given:
+          a: { pick: 1, from: { data: stammtoene } }
+          b: { pick: 1, from: { data: stammtoene } }
+        where:
+          - "b.halbton > a.halbton"
+          - "b.halbton - a.halbton <= 7"
+          - "b.halbton - a.halbton != (b.stufe - a.stufe) * 2"
+          - "b.halbton - a.halbton != b.stufe - a.stufe"
+        task:
+          text: "Wie viele Halbtonschritte liegen zwischen {{a.name}} und {{b.name}}?"
+        answer:
+          value: "b.halbton - a.halbton"
+          compare: { number: { format: integer } }
+        mistakes:
+          - value: "(b.stufe - a.stufe) * 2"
+            message: "Du hast jeden Schritt als Ganztonschritt gezählt. Zwischen e–f und h–c liegt nur ein Halbtonschritt."
+          - value: "b.stufe - a.stufe"
+            message: Du hast nur die weißen Tasten gezählt. Ein Halbtonschritt geht auch zu jeder schwarzen Taste.
+        hint: Zähl jede Taste nach dem ersten Ton, schwarz oder weiß, bis du beim zweiten Ton bist.
+        steps:
+          - "Von {{a.name}} bis {{b.name}} zählst du jede Taste, schwarz oder weiß: {{answer}} Halbtonschritte."
+      - type: true-false
+        id: c-d-halbton
+        text: Von c zu d ist ein Halbtonschritt.
+        answer: false
+        explanation: Zwischen c und d liegt eine schwarze Taste. Von c zu d sind es zwei Halbtonschritte, also ein Ganztonschritt.
+        links:
+          - title: Halbton (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Halbton"
+      - type: number
+        id: halbtoene-oktave
+        text: Wie viele Halbtonschritte liegen zwischen c und c¹?
+        answer: 12
+        tolerance: 0
+        mistakes:
+          - answer: 7
+            message: Das sind nur die Schritte über weiße Tasten. Zähl auch die fünf schwarzen Tasten mit.
+          - answer: 14
+            message: Du hast jeden weißen Schritt als Ganztonschritt gezählt. Bei e–f und h–c ist es nur ein Halbtonschritt.
+        explanation: Eine Oktave hat sieben weiße und fünf schwarze Tasten, also zwölf Halbtonschritte bis zum nächsten c.
+        links:
+          - title: Halbton (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Halbton"
+      - type: text
+        text: >-
+          Jetzt zählst du Halbtonschritte sicher ab. Als Nächstes geht es um die Vorzeichen: Mit ihnen schreibst du die
+          schwarzen Tasten.

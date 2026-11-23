@@ -1,0 +1,16 @@
+# Die Stammtöne der kleinen und der eingestrichenen Oktave.
+# stufe: Stammton-Nummer ab dem großen C; halbton: Halbtöne über dem großen C.
+- { name: "c", stufe: 7, halbton: 12 }
+- { name: "d", stufe: 8, halbton: 14 }
+- { name: "e", stufe: 9, halbton: 16 }
+- { name: "f", stufe: 10, halbton: 17 }
+- { name: "g", stufe: 11, halbton: 19 }
+- { name: "a", stufe: 12, halbton: 21 }
+- { name: "h", stufe: 13, halbton: 23 }
+- { name: "c¹", stufe: 14, halbton: 24 }
+- { name: "d¹", stufe: 15, halbton: 26 }
+- { name: "e¹", stufe: 16, halbton: 28 }
+- { name: "f¹", stufe: 17, halbton: 29 }
+- { name: "g¹", stufe: 18, halbton: 31 }
+- { name: "a¹", stufe: 19, halbton: 33 }
+- { name: "h¹", stufe: 20, halbton: 35 }

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Dreiklänge
+summary: Dreiklänge aus Grundton, Terz und Quinte aufbauen, Dur und Moll bestimmen und in Kurzschrift schreiben.
+pages: [dreiklang-aufbauen, das-brauchst-du, dur-moll-kurzschrift]
+selfAssessment:
+  pages:
+    - exercises:
+        - /dreiklaenge/dreiklang-aufbauen/#dreiklang-setzen
+        - /dreiklaenge/dreiklang-aufbauen/#dreiklang-setzen-bass
+    - exercises:
+        - /dreiklaenge/dur-moll-kurzschrift/#dreiklang-lesen
+        - /dreiklaenge/dur-moll-kurzschrift/#dreiklang-schreiben
+        - /dreiklaenge/dur-moll-kurzschrift/#dreiklang-lesen-bass

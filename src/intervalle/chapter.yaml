@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Intervalle bestimmen
+summary: Den Abstand zweier Töne grob (Prime bis Oktave) und fein (kleine und große Sekunde und Terz) bestimmen.
+pages: [das-brauchst-du, grobbestimmung, feinbestimmung]
+selfAssessment:
+  pages:
+    - exercises:
+        - /intervalle/grobbestimmung/#stammtoene-zaehlen
+        - /intervalle/grobbestimmung/#intervall-grob
+        - /intervalle/grobbestimmung/#intervall-grob-bass
+    - exercises:
+        - /intervalle/feinbestimmung/#klein-oder-gross
+        - /intervalle/feinbestimmung/#intervall-fein
+        - /intervalle/feinbestimmung/#intervall-fein-bass

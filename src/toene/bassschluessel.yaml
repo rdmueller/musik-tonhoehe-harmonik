@@ -1,0 +1,225 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Bassschlüssel
+description: "Noten im Bassschlüssel lesen und schreiben: vom kleinen f auf der 4. Linie aus abzählen."
+competencies: [bassschluessel]
+blocks:
+  - type: section
+    id: einstieg
+    title: Gleicher Platz, anderer Name
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Noten im Bassschlüssel zu lesen und zu schreiben. In ihm stehen tiefe Töne, zum
+          Beispiel für die linke Hand am Klavier, für Cello oder Bassstimme. Schau dir zuerst diese zwei Noten an:
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: 0, vz: 0 }]
+          akkord: false
+          markiert: []
+          beschreibung: Violinschlüssel, eine Note auf der 1. Linie, benannt mit e¹.
+          klickbar: false
+          namen: [e¹]
+        nojs: Ein Notensystem mit Violinschlüssel. Eine Note steht auf der 1. Linie, sie heißt e¹.
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: bass
+          noten: [{ p: 0, vz: 0 }]
+          akkord: false
+          markiert: []
+          beschreibung: Bassschlüssel, eine Note auf der 1. Linie, ohne Namen.
+          klickbar: false
+        nojs: Ein Notensystem mit Bassschlüssel. Eine Note steht auf der 1. Linie, ohne Namen.
+      - type: single-choice
+        id: einstieg-gleicher-platz
+        text: Beide Noten stehen auf der 1. Linie. Heißt die Note im Bassschlüssel auch e¹?
+        options:
+          - text: Nein, der Schlüssel ändert die Namen.
+            correct: true
+            info: Jeder Schlüssel legt einen anderen Ton auf eine Linie fest. Darum heißt derselbe Platz anders.
+          - text: Ja, die 1. Linie ist immer e¹.
+            correct: false
+            info: Das gilt nur im Violinschlüssel. Er legt g¹ auf die 2. Linie, daraus folgt e¹ auf der 1. Linie.
+          - text: Ja, aber eine Oktave tiefer, also e.
+            correct: false
+            info: Eine Oktave tiefer wäre e. Der Bassschlüssel verschiebt die Namen aber nicht um eine Oktave.
+        explanation: Der Schlüssel am Anfang des Systems bestimmt, wie die Linien heißen. Im Bassschlüssel steht auf der 1. Linie G.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+  - type: section
+    id: regel
+    title: Vom f auf der 4. Linie aus abzählen
+    blocks:
+      - type: text
+        text: >-
+          Der **Bassschlüssel** beginnt mit einem dicken Punkt auf der 4. Linie, und seine zwei kleinen Punkte liegen
+          über und unter dieser Linie. Er legt fest: Auf der 4. Linie steht das kleine f. Darum heißt er auch
+          F-Schlüssel. Von f zählst du wie gewohnt Schritt für Schritt nach oben oder unten.
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: bass
+          noten:
+            - { p: 0, vz: 0 }
+            - { p: 1, vz: 0 }
+            - { p: 2, vz: 0 }
+            - { p: 3, vz: 0 }
+            - { p: 4, vz: 0 }
+            - { p: 5, vz: 0 }
+            - { p: 6, vz: 0 }
+            - { p: 7, vz: 0 }
+            - { p: 8, vz: 0 }
+          akkord: false
+          markiert: [6]
+          beschreibung: "Bassschlüssel, die Linien von unten nummeriert, neun Noten Schritt für Schritt von der 1. bis zur 5. Linie. Benannt sind die Noten auf den Linien: G, H, d, f, a. Die 4. Linie mit f ist markiert."
+          klickbar: false
+          namen: [G, "", H, "", d, "", f, "", a]
+          nummern: true
+        nojs: >-
+          Ein Notensystem mit Bassschlüssel, die Linien von unten nummeriert. Neun Noten steigen Schritt für Schritt.
+          Benannt sind die Noten auf den Linien: G (1. Linie), H (2. Linie), d (3. Linie), f (4. Linie, markiert), a
+          (5. Linie).
+      - type: definition
+        term: Bassschlüssel
+        explanation: Der Notenschlüssel, der das kleine f auf die 4. Linie legt; auch F-Schlüssel genannt.
+      - type: text
+        text: >-
+          Unter c liegt die große Oktave: Die Töne auf der 1. und 2. Linie, G und H, schreibst du deshalb groß. Über
+          dem System, auf der 1. Hilfslinie oben, steht c¹, dasselbe c¹ wie auf der 1. Hilfslinie unter dem
+          Violinschlüssel.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Liest du eine Bassnote wie im Violinschlüssel, liegst du zwei Stammtöne und eine Oktavlage daneben: Auf der 1. Linie
+              steht im Bass G, nicht e¹. Schau darum zuerst auf den Schlüssel.
+  - type: section
+    id: beispiel
+    title: "Beispiel: der unterste Zwischenraum"
+    blocks:
+      - type: example
+        title: Wie heißt der Ton im untersten Zwischenraum des Bassschlüssels?
+        blocks:
+          - type: text
+            text: |
+              1. Start auf der 4. Linie: f.
+              2. Abwärts, Schritt für Schritt: e (3. Zwischenraum), d (3. Linie), c (2. Zwischenraum), H (2. Linie), A (1. Zwischenraum).
+              3. Nach c beginnt abwärts die große Oktave: Der Ton heißt **A**, groß geschrieben.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: number
+        id: f-linie
+        text: Auf welcher Linie steht im Bassschlüssel das kleine f? Gib die Nummer der Linie an.
+        answer: 4
+        tolerance: 0
+        mistakes:
+          - answer: 2
+            message: "Die 2. Linie legt der Violinschlüssel fest, für g¹. Beim Bassschlüssel schau auf den dicken Punkt."
+          - answer: 5
+            message: Linien zählen von unten. Die 5. Linie ist die oberste, dort steht a.
+        explanation: Der dicke Punkt und die zwei kleinen Punkte des Bassschlüssels umfassen die 4. Linie, das kleine f.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+      - type: single-choice
+        id: erste-linie-bass
+        text: Im Bassschlüssel steht eine Note auf der 1. Linie. Wie heißt sie?
+        options:
+          - text: G
+            correct: true
+            info: "Von f auf der 4. Linie abwärts: e, d, c, H, A, G. Das G steht auf der 1. Linie."
+          - text: e¹
+            correct: false
+            info: Das e¹ steht im Violinschlüssel auf der 1. Linie. Im Bassschlüssel heißt der Platz anders.
+          - text: H
+            correct: false
+            info: Das H steht auf der 2. Linie, einen Linienschritt höher.
+          - text: g
+            correct: false
+            info: Der Buchstabe stimmt, die Oktave nicht. Unter c liegt die große Oktave, also groß geschrieben.
+        explanation: Die Linien im Bassschlüssel heißen von unten G, H, d, f, a.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+      - type: vue-component
+        id: bass-lesen
+        component: NotenLesen
+        props:
+          aufgabe: Wie heißt dieser Ton im Bassschlüssel? Gib auch die Oktavlage an.
+          schluessel: bass
+          tiefste: -4
+          hoechste: 12
+          vorzeichen: false
+          oktave: true
+          beschriftung:
+            stammton: Stammton
+            vorzeichen: Zeichen vor der Note
+            ohne: ohne
+            kreuz: "♯ (-is)"
+            be: "♭ (-es)"
+            oktave: Oktavlage
+            oktaven: [groß (C), klein (c), eingestrichen (c¹), zweigestrichen (c²)]
+          mistakes:
+            - Du hast die Note wie im Violinschlüssel gelesen. Im Bassschlüssel zählst du vom f auf der 4. Linie.
+            - "Schau auf das Zeichen vor der Note: Steht dort ♯, ♭ oder nichts?"
+            - "Der Name stimmt, die Oktavlage nicht. Unter c liegt die große Oktave (groß geschrieben), ab c¹ die eingestrichene."
+            - Ein Schritt daneben. Prüf, ob die Note auf einer Linie oder in einem Zwischenraum steht.
+        examples:
+          accepted:
+            - { answer: f, seed: 1 }
+          rejected:
+            - { answer: d², seed: 1 }
+            - { answer: f¹, seed: 1 }
+            - { answer: g, seed: 1 }
+      - type: vue-component
+        id: bass-setzen
+        component: NotenSetzen
+        props:
+          aufgabe: Schreibe {ton} im Bassschlüssel. Tippe ins System und schieb die Note mit „Note höher“ und „Note tiefer“ genau an ihren Platz.
+          schluessel: bass
+          tiefste: -4
+          hoechste: 12
+          vorzeichen: false
+          beschriftung:
+            system: Notensystem mit Bassschlüssel. Tippe auf eine Linie oder einen Zwischenraum.
+            leer: Noch keine Note gesetzt.
+            hoeher: Note höher
+            tiefer: Note tiefer
+            zeichen: Zeichen vor der Note
+            kein: kein
+            kreuz: ♯
+            be: ♭
+            entfernen: Note entfernen
+          mistakes:
+            - Das ist der Platz im Violinschlüssel. Im Bassschlüssel zählst du vom f auf der 4. Linie.
+            - "Prüf das Zeichen vor der Note: Braucht der Ton ein ♯ oder ein ♭?"
+            - "Der Stammton stimmt, aber eine Oktave daneben. Groß geschrieben liegt unter c, ohne Strich von c bis h, mit ¹ ab c¹."
+            - Ein Schritt daneben. Zähl noch einmal Linie, Zwischenraum, Linie vom f aus.
+            - Der Ton klingt gleich, heißt aber anders. Gefragt ist genau der genannte Name.
+        examples:
+          accepted:
+            - { answer: { p: 6, vz: 0 }, seed: 1 }
+          rejected:
+            - { answer: { p: 8, vz: 0 }, seed: 1 }
+            - { answer: { p: 13, vz: 0 }, seed: 1 }
+            - { answer: { p: 7, vz: 0 }, seed: 1 }
+      - type: true-false
+        id: c1-im-bass
+        text: Im Bassschlüssel steht c¹ auf der 1. Hilfslinie über dem System.
+        answer: true
+        explanation: >-
+          Über der 5. Linie (a) kommt h, dann c¹ auf der 1. Hilfslinie. Das c¹ verbindet beide Schlüssel: Im
+          Violinschlüssel steht es auf der 1. Hilfslinie unten.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+      - type: text
+        text: >-
+          Jetzt liest du beide Schlüssel. Als Nächstes zählst du auf der Klaviatur Halbtonschritte ab, damit du gleich
+          die Vorzeichen verstehst.

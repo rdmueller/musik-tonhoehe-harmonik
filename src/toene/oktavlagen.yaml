@@ -1,0 +1,176 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Oktavlagen
+description: "Oktaven auf der Klaviatur finden und Töne mit gleichem Namen unterscheiden: C, c, c¹, c²."
+competencies: [oktave]
+blocks:
+  - type: section
+    id: einstieg
+    title: Zweimal c
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Töne mit gleichem Namen auseinanderzuhalten und genau zu sagen, welches c gemeint
+          ist. Du kennst die Klaviatur schon. Schau dir die beiden markierten Tasten an:
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 1
+          oktaven: 2
+          markiert: [12, 24]
+          boegen: []
+          be: false
+          schwarzeNamen: false
+          oktavnamen: false
+          beschreibung: "Klaviatur mit zwei Oktaven. Zwei Tasten sind gelb markiert: das c ganz links und das nächste c weiter rechts, acht weiße Tasten weit, beide mitgezählt."
+        nojs: >-
+          Eine Klaviatur mit zwei Oktaven. Gelb markiert sind zwei weiße Tasten links von zwei schwarzen Tasten: die
+          erste ganz links, die zweite beim nächsten c: acht weiße Tasten, beide mitgezählt.
+      - type: single-choice
+        id: einstieg-zwei-c
+        text: Beide markierten Tasten sind ein c. Was stimmt?
+        options:
+          - text: Die rechte klingt höher als die linke.
+            correct: true
+            info: Auf der Klaviatur klingen Tasten weiter rechts höher. Gleicher Name heißt nicht gleiche Höhe.
+          - text: Beide klingen genau gleich hoch.
+            correct: false
+            info: Gleich hoch klingt nur dieselbe Taste. Die beiden c liegen eine Oktave auseinander, acht weiße Tasten, beide mitgezählt.
+          - text: Die linke klingt höher als die rechte.
+            correct: false
+            info: Auf der Klaviatur wird es nach links tiefer, nicht höher.
+        explanation: >-
+          Die beiden c klingen verwandt, fast wie derselbe Ton, aber das rechte klingt höher. Der Abstand zwischen
+          ihnen heißt Oktave.
+        links:
+          - title: Oktave (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Oktave"
+  - type: section
+    id: regel
+    title: Jede Oktave beginnt mit c
+    blocks:
+      - type: text
+        text: >-
+          Von einem c bis zum nächsten c sind es acht weiße Tasten, das erste c mitgezählt: c, d, e, f, g, a, h, c. Diesen
+          Abstand nennt man **Oktave** (lateinisch „die Achte“). Weil sich die Namen jede Oktave wiederholen, bekommt
+          jede Oktave eine eigene Schreibweise. Eine neue Oktave beginnt immer mit c.
+      - type: definition
+        term: Oktave
+        explanation: Der Abstand von einem Ton zum nächsten Ton mit gleichem Namen, acht Stammtöne weit.
+      - type: vue-component
+        component: Klaviatur
+        props:
+          start: 1
+          oktaven: 2
+          markiert: []
+          boegen: []
+          be: false
+          schwarzeNamen: false
+          oktavnamen: true
+          beschreibung: "Klaviatur mit zwei Oktaven. Links die kleine Oktave mit den Tasten c bis h, rechts die eingestrichene Oktave mit c¹ bis h¹."
+        nojs: >-
+          Eine Klaviatur mit zwei Oktaven. Die linke Oktave heißt kleine Oktave, ihre Tasten c, d, e, f, g, a, h. Die
+          rechte heißt eingestrichene Oktave, ihre Tasten c¹, d¹, e¹, f¹, g¹, a¹, h¹.
+      - type: table
+        caption: Die Oktavlagen von tief nach hoch
+        header: [Oktave, Töne]
+        rows:
+          - [große Oktave, "C bis H, groß geschrieben"]
+          - [kleine Oktave, "c bis h, klein geschrieben"]
+          - [eingestrichene Oktave, "c¹ bis h¹, mit ¹"]
+          - [zweigestrichene Oktave, "c² bis h², mit ²"]
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Die Oktave wechselt beim c, nicht beim a. Das h ist der letzte Ton einer Oktave: Rechts neben h kommt c¹,
+              rechts neben h¹ kommt c². Das c¹ liegt in der Mitte der Klaviatur.
+  - type: section
+    id: beispiel
+    title: "Beispiel: eine Oktave über a"
+    blocks:
+      - type: example
+        title: Wie heißt der Ton eine Oktave über a?
+        blocks:
+          - type: text
+            text: |
+              1. Das a ohne Strich liegt in der kleinen Oktave.
+              2. Zähl acht weiße Tasten nach rechts, das a mitgezählt: a, h, c¹, d¹, e¹, f¹, g¹, a¹.
+              3. Beim c¹ hat die eingestrichene Oktave begonnen, darum heißt das Ziel **a¹**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: matching
+        id: oktave-zuordnen
+        text: In welcher Oktave liegt der Ton?
+        pairs:
+          - { left: G, right: große Oktave }
+          - { left: e, right: kleine Oktave }
+          - { left: d¹, right: eingestrichene Oktave }
+          - { left: f², right: zweigestrichene Oktave }
+        explanation: >-
+          Großbuchstabe heißt große Oktave, Kleinbuchstabe ohne Strich kleine Oktave, ¹ eingestrichene und ² zweigestrichene
+          Oktave.
+        links:
+          - title: Oktave (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Oktave"
+      - type: generated
+        id: oktave-hoeher
+        given:
+          t: { pick: 1, from: { data: oktaven } }
+        task:
+          text: "Wie heißt der Ton eine Oktave über {{t.name}}?"
+        answer:
+          value: "t.hoeher"
+          compare: { choice: "[t.hoeher, t.name, t.weit]" }
+        mistakes:
+          - value: "t.name"
+            message: "Das ist derselbe Ton. Eine Oktave höher hat den gleichen Buchstaben, aber die nächste Schreibweise."
+          - value: "t.weit"
+            message: "Der Buchstabe stimmt, aber das ist nicht genau eine Oktave höher. Zähl acht weiße Tasten nach rechts."
+        hint: "Die Oktavlagen von tief nach hoch: C, c, c¹, c². Eine Oktave höher ist der nächste Schritt in dieser Reihe."
+        steps:
+          - "{{t.name}} gehört zur Oktave: {{t.oktave}}. Eine Oktave höher, acht weiße Tasten weiter, beide mitgezählt, liegt {{answer}}."
+      - type: ordering
+        id: c-ordnen
+        text: Ordne die vier c von tief nach hoch.
+        items: [C, c, c¹, c²]
+        explanation: Großes C ist das tiefste, dann folgen das kleine c, das eingestrichene c¹ und das zweigestrichene c².
+        links:
+          - title: Oktave (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Oktave"
+      - type: single-choice
+        id: rechts-neben-h
+        text: Welche weiße Taste liegt auf der Klaviatur direkt rechts neben dem h?
+        options:
+          - text: c¹
+            correct: true
+            info: Nach h beginnt eine neue Oktave. Die nächste weiße Taste ist darum c¹, nicht c.
+          - text: c
+            correct: false
+            info: Das c ist der erste Ton der kleinen Oktave, ganz links, sechs weiße Tasten vor dem h.
+          - text: h¹
+            correct: false
+            info: Das h¹ liegt eine ganze Oktave über dem h, nicht direkt daneben.
+          - text: a
+            correct: false
+            info: Das a liegt links neben dem h, nicht rechts.
+        explanation: Die Oktave wechselt beim c. Rechts neben h kommt deshalb c¹.
+        links:
+          - title: Oktave (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Oktave"
+      - type: true-false
+        id: a1-hoeher-als-h
+        text: Das a¹ klingt höher als das h.
+        answer: true
+        explanation: >-
+          Das h ohne Strich liegt in der kleinen Oktave, das a¹ in der eingestrichenen. Erst zählt die Oktave, dann der
+          Buchstabe.
+        links:
+          - title: Oktave (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Oktave"
+      - type: text
+        text: >-
+          Jetzt sagst du genau, welches c gemeint ist. Als Nächstes liest du damit jeden Ton im Violinschlüssel, auch
+          über und unter dem System.

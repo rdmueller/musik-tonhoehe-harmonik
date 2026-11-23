@@ -1,0 +1,188 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Notensystem und Violinschlüssel
+description: "Das Notensystem mit fünf Linien und vier Zwischenräumen, und was der Violinschlüssel festlegt."
+competencies: [notensystem]
+blocks:
+  - type: section
+    id: einstieg
+    title: Hoch und tief auf dem Papier
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, wie das Notensystem gebaut ist und was der Violinschlüssel darin festlegt. Du weißt
+          schon, dass Töne hoch oder tief klingen. Probier, wie man das auf dem Papier sieht:
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: 1, vz: 0 }, { p: 6, vz: 0 }]
+          akkord: false
+          markiert: []
+          beschreibung: Violinschlüssel mit zwei Noten. Die linke steht weit unten im System, die rechte weit oben.
+          klickbar: false
+          namen: [Note 1, Note 2]
+        nojs: Ein Notensystem mit zwei Noten. Note 1 steht im untersten Zwischenraum, Note 2 auf der 4. Linie.
+      - type: single-choice
+        id: einstieg-hoeher
+        text: Welche der beiden Noten klingt höher?
+        options:
+          - text: Note 2
+            correct: true
+            info: Note 2 steht weiter oben im System. Je höher eine Note steht, desto höher klingt sie.
+          - text: Note 1
+            correct: false
+            info: Note 1 steht weiter unten im System, sie klingt tiefer.
+          - text: Beide gleich hoch
+            correct: false
+            info: Gleich hoch klingen zwei Noten nur, wenn sie auf demselben Platz stehen. Hier stehen sie verschieden.
+        explanation: Im Notensystem bedeutet oben hoch und unten tief, wie auf einer Leiter.
+        links:
+          - title: Notensystem (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notensystem_(Musik)"
+  - type: section
+    id: regel
+    title: Fünf Linien und ein Schlüssel
+    blocks:
+      - type: text
+        text: >-
+          Das **Notensystem** hat fünf Linien. Zwischen ihnen liegen vier Zwischenräume. Linien und Zwischenräume zählt
+          man immer von unten: Die unterste Linie ist die 1. Linie. Eine Note steht entweder **auf** einer Linie, dann
+          geht die Linie durch die Note, oder **in** einem Zwischenraum.
+      - type: definition
+        term: Notensystem
+        explanation: Fünf waagrechte Linien, auf denen und zwischen denen Noten stehen. Oben bedeutet hoch, unten tief.
+      - type: text
+        text: >-
+          Ohne Schlüssel weißt du nur, welche Note höher ist, aber nicht, wie sie heißt. Der **Violinschlüssel** löst
+          das. Seine Schnecke kreist um die 2. Linie und legt fest: Auf der 2. Linie steht das g¹. Darum heißt er auch
+          G-Schlüssel.
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: 2, vz: 0 }]
+          akkord: false
+          markiert: [2]
+          beschreibung: Violinschlüssel, die Linien von unten nummeriert 1 bis 5. Die 2. Linie ist markiert, auf ihr steht eine Note mit dem Namen g¹.
+          klickbar: false
+          namen: [g¹]
+          nummern: true
+        nojs: >-
+          Ein Notensystem mit Violinschlüssel, die Linien von unten nummeriert. Die 2. Linie ist markiert. Die Schnecke
+          des Schlüssels kreist um diese Linie. Auf ihr steht eine Note: g¹.
+      - type: text
+        text: >-
+          Die Töne der weißen Tasten heißen **Stammtöne**: c, d, e, f, g, a, h, danach wieder c. Jeder Schritt im System,
+          von der Linie in den Zwischenraum oder vom Zwischenraum auf die Linie, führt zum nächsten Stammton.
+      - type: definition
+        term: Stammton
+        explanation: "Einer der sieben Töne c, d, e, f, g, a, h, die Töne der weißen Tasten."
+      - type: definition
+        term: Violinschlüssel
+        explanation: Der Notenschlüssel, der das g¹ auf die 2. Linie legt; auch G-Schlüssel genannt.
+  - type: section
+    id: beispiel
+    title: "Beispiel: der Nachbar von g¹"
+    blocks:
+      - type: example
+        title: Welcher Ton steht im Zwischenraum direkt über der 2. Linie?
+        blocks:
+          - type: text
+            text: |
+              1. Auf der 2. Linie steht g¹, das legt der Violinschlüssel fest.
+              2. Ein Schritt höher, in den Zwischenraum darüber, ist der nächste Stammton nach g: a.
+              3. Der Ton heißt **a¹**.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: number
+        id: zwischenraeume-zaehlen
+        text: Wie viele Zwischenräume liegen zwischen den fünf Linien eines Notensystems?
+        answer: 4
+        tolerance: 0
+        mistakes:
+          - answer: 5
+            message: "Fünf sind die Linien. Zwischenräume liegen nur zwischen zwei Linien: Zähl die Lücken."
+          - answer: 6
+            message: Über und unter dem System liegt kein Zwischenraum, nur zwischen den Linien.
+        explanation: Fünf Linien haben vier Lücken zwischen sich, so wie fünf Finger vier Lücken haben.
+        links:
+          - title: Notensystem (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notensystem_(Musik)"
+      - type: matching
+        id: begriffe-zuordnen
+        text: Was gehört zusammen?
+        pairs:
+          - { left: Notensystem, right: fünf Linien und vier Zwischenräume }
+          - { left: Violinschlüssel, right: legt das g¹ auf die 2. Linie }
+          - { left: 1. Linie, right: die unterste Linie }
+          - { left: Zwischenraum, right: Platz zwischen zwei Linien }
+        distractors: [die oberste Linie]
+        explanation: Linien zählen von unten; der Violinschlüssel gibt den Namen für die 2. Linie vor.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+      - type: vue-component
+        id: g-und-nachbarn
+        component: NotenLesen
+        props:
+          aufgabe: "Wie heißt dieser Ton? Er ist g¹ oder ein Nachbar von g¹."
+          schluessel: violin
+          tiefste: 1
+          hoechste: 3
+          vorzeichen: false
+          oktave: false
+          beschriftung:
+            stammton: Stammton
+            vorzeichen: Zeichen vor der Note
+            ohne: ohne
+            kreuz: "♯ (-is)"
+            be: "♭ (-es)"
+            oktave: Oktavlage
+            oktaven: [groß (C), klein (c), eingestrichen (c¹), zweigestrichen (c²)]
+          mistakes:
+            - Du liegst zwei Schritte daneben. Start ist g¹ auf der 2. Linie.
+            - "Schau auf das Zeichen vor der Note: Hier steht keins."
+            - Der Name stimmt, die Oktavlage nicht.
+            - "Ein Schritt daneben: Steht die Note auf der 2. Linie oder im Zwischenraum darüber oder darunter?"
+        examples:
+          accepted:
+            - { answer: g, seed: 1 }
+          rejected:
+            - { answer: a, seed: 1 }
+            - { answer: h, seed: 1 }
+      - type: single-choice
+        id: schluessel-linie
+        text: Welche Linie legt der Violinschlüssel fest?
+        options:
+          - text: Die 2. Linie, auf ihr steht g¹
+            correct: true
+            info: Die Schnecke des Violinschlüssels kreist um die 2. Linie. Dort steht g¹.
+          - text: Die 1. Linie, auf ihr steht g¹
+            correct: false
+            info: Die 1. Linie ist die unterste, eine Linie unter der Linie des Schlüssels.
+          - text: Die 3. Linie, auf ihr steht g¹
+            correct: false
+            info: Die 3. Linie ist die mittlere Linie. Dort steht h¹, über dem g¹.
+          - text: Die 4. Linie, auf ihr steht g¹
+            correct: false
+            info: Die 4. Linie liegt weit oben im System, nicht dort, wo die Schnecke kreist.
+        explanation: Der Violinschlüssel heißt auch G-Schlüssel, weil er die Linie des g¹ festlegt, die 2. Linie.
+        links:
+          - title: Notenschlüssel (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notenschl%C3%BCssel"
+      - type: true-false
+        id: zwischenraum-durchgestrichen
+        text: Eine Note im Zwischenraum wird von einer Linie durchgestrichen.
+        answer: false
+        explanation: >-
+          Durchgestrichen wird eine Note auf einer Linie. Eine Note im Zwischenraum liegt zwischen zwei Linien und
+          berührt sie nur oben und unten.
+        links:
+          - title: Notensystem (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Notensystem_(Musik)"
+      - type: text
+        text: >-
+          Jetzt kennst du das Notensystem und weißt, wo das g¹ steht. Als Nächstes lernst du die Oktavlagen: wie du sagst,
+          welches c oder welches g genau gemeint ist.
