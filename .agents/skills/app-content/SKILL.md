@@ -22,7 +22,7 @@ Probetest. Archetyp `explainer`, Strang `musik/tonhoehe-harmonik`, nur Deutsch.
 Ids und „Ich kann …“-Sätze wörtlich von der Karte (`https://lernapps.net/apps/map/musik.json`).
 
 **Kapitel `toene` – Töne lesen und schreiben**
-- Wiederholung `src/toene/das-brauchst-du.yaml`: recap `musik/klaviatur-tasten`.
+- Wiederholung `src/toene/das-brauchst-du.yaml`: recap `musik/tonhoehe-hoch-tief` und `musik/klaviatur-tasten`.
 - `notensystem` – Ich kann das Notensystem mit seinen fünf Linien und den Violinschlüssel beschreiben.
   → `src/toene/notensystem.yaml`.
 - `oktave` – Ich kann Oktaven auf der Klaviatur finden und Töne mit gleichem Namen in verschiedenen Oktaven benennen.
