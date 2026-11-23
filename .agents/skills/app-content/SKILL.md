@@ -25,10 +25,10 @@ Ids und „Ich kann …“-Sätze wörtlich von der Karte (`https://lernapps.net
 - Wiederholung `src/toene/das-brauchst-du.yaml`: recap `musik/klaviatur-tasten`.
 - `notensystem` – Ich kann das Notensystem mit seinen fünf Linien und den Violinschlüssel beschreiben.
   → `src/toene/notensystem.yaml`.
+- `oktave` – Ich kann Oktaven auf der Klaviatur finden und Töne mit gleichem Namen in verschiedenen Oktaven benennen.
+  → `src/toene/oktavlagen.yaml` (vor `noten-benennen`: Das Benennen braucht die Oktavlagen; beide Schritt 5 der Karte).
 - `noten-benennen` – Ich kann Noten auf Linien, in Zwischenräumen und auf Hilfslinien erkennen und mit ihrem Namen
   benennen. → `src/toene/noten-benennen.yaml` (Musterseite).
-- `oktave` – Ich kann Oktaven auf der Klaviatur finden und Töne mit gleichem Namen in verschiedenen Oktaven benennen.
-  → `src/toene/oktavlagen.yaml`.
 - `bassschluessel` – Ich kann den Bassschlüssel lesen und die Noten darin benennen. → `src/toene/bassschluessel.yaml`.
 - `halbtonschritte` – Ich kann Halbtonschritte auf der Klaviatur abzählen. → `src/toene/halbtonschritte.yaml`.
 - `vorzeichen-lesen` – Ich kann Kreuz, b und Auflösungszeichen lesen und erhöhte oder erniedrigte Töne spielen.
@@ -84,42 +84,46 @@ Die Übungs-ids jeder Seite stehen in ihrer YAML-Datei; die Selbsteinschätzung 
 
 ## Exercise patterns
 
-Komponenten in `src/components/`, gemeinsame Logik `Notenbild.ts` (Ton ↔ Linie/Zwischenraum je Schlüssel,
-Halbtonnummer, Intervall grob und fein, Dreiklang, Tonname mit Oktavzeichen).
+Komponenten in `src/components/`. Gemeinsame Logik: `Notenbild.ts` (Ton als Stammton, Vorzeichen, Oktave; Tonname
+mit Oktavzeichen; Platz im System je Schlüssel, 0 = 1. Linie, 1 = 1. Zwischenraum …; Halbtöne; Intervalle; Dreiklang;
+Kurzschrift), `Dreiklang.ts` (die Grundtöne C, D, E, F, G, A, H, B, Es, Fis und das Ziehen eines Dreiklangs),
+`NotenSystem.ts` (Geometrie des Systems). Jede Übungskomponente zieht ihre Aufgabe aus dem `seed`, nennt typische
+Fehler über `mistakes` (Texte in den Props, Reihenfolge wie `about.mistakes` im `.ts`) und hat einen Test.
 
-- **Ton lesen** (`noten-benennen`, `notensystem`, `oktave`, `bassschluessel`, `vorzeichen-lesen`): `NotenLesen` mit
-  `art: ton`; zeigt eine Note, Antwort über Knöpfe Stammton, Vorzeichen, Oktavlage. Variiert: Schlüssel, Tonbereich,
-  ob Vorzeichen vorkommen, ob die Oktavlage verlangt ist. Fehler: Schlüssel verwechselt (Terz daneben), Vorzeichen
-  übersehen, Oktavlage falsch.
-- **Ton schreiben**: `NotenSetzen` mit `art: ton`; Aufgabe „Schreibe fis¹“, Lernende tippen Linie oder Zwischenraum und
-  wählen das Zeichen. Fehler wie oben; enharmonisch gleich (ges statt fis) zählt als falsch, mit eigener Meldung.
-- **Intervall grob** (`intervall-benennen`): `NotenLesen` mit `art: intervall-grob`; zwei Noten aufwärts, Antwort
-  Prime … Oktave. Fehler: Startton nicht mitgezählt.
-- **Intervall fein** (`intervall-qualitaet`): `NotenLesen` mit `art: intervall-fein`; Sekunden und Terzen, Antwort
-  groß/klein. Fehler: e–f/h–c als Ganzton gezählt, Vorzeichen nicht beachtet.
-- **Dreiklang bestimmen** (`dreiklangsarten`): `NotenLesen` mit `art: dreiklang`; Antwort Grundton + Vorzeichen +
-  Dur/Moll, ergibt Kurzschrift. Fehler: Terzen vertauscht, Groß/klein vertauscht, Vorzeichen des Grundtons vergessen.
-- **Dreiklang schreiben** (`dreiklang`, `dreiklangsarten`): `NotenSetzen` mit `art: dreiklang`; Grundton gegeben
-  bzw. Kurzschrift gegeben, Lernende setzen Terz und Quinte.
-- **Halbtöne zählen** (`halbtonschritte`): `generated` aus `src/data/toene.yaml`, `compare: number`; Fehler: e–f/h–c
-  als Ganzton.
-- **Zuordnen, ordnen, entscheiden**: `matching` (Linie ↔ Ton, Name ↔ Zeichen, Kurzschrift ↔ Tongeschlecht),
-  `ordering` (Töne nach Höhe, Intervalle nach Größe), `single-choice` mit dem typischen Fehler als Option,
-  `true-false`, `number`.
-- Jede falsche Option sagt, warum sie nicht passt; jede Komponente und jedes `generated` hat 2–3 Fehler mit Meldung
-  und einen Hinweis.
+| Muster | Komponente oder Block | Props, die variieren | Typische Fehler (Reihenfolge der `mistakes`) | Beispiel |
+|---|---|---|---|---|
+| Ton lesen | `NotenLesen` | `schluessel`, `tiefste`/`hoechste` (Plätze), `vorzeichen`, `oktave` | anderer Schlüssel (2 Plätze daneben), Vorzeichen, Oktavlage, Nachbarton | `toene/noten-benennen#noten-lesen` |
+| Ton schreiben | `NotenSetzen` | `schluessel`, `tiefste`/`hoechste`, `vorzeichen`; `aufgabe` mit `{ton}` | anderer Schlüssel, Vorzeichen, Oktave, Nachbarplatz, enharmonisch (ges statt fis) | `toene/noten-benennen#noten-setzen` |
+| Intervall grob/fein | `IntervallLesen` | `art` (`grob` Prime–Oktave, `fein` kl./gr. Sekunde und Terz), `schluessel`, Plätze des unteren Tons, `vorzeichen` | grob: Startton nicht gezählt, einer zu viel; fein: e–f/h–c, Vorzeichen, Sekunde/Terz verwechselt, groß/klein | `intervalle/feinbestimmung#intervall-fein` |
+| Dreiklang bestimmen | `DreiklangLesen` | `schluessel`, Plätze des Grundtons | Dur/Moll vertauscht, Vorzeichen des Grundtons, nach der Terz benannt | `dreiklaenge/dur-moll-kurzschrift#dreiklang-lesen` |
+| Dreiklang schreiben | `DreiklangSetzen` | `modus` (`stamm`: Terz und Quinte auf einem Stammton; `kurz`: aus der Kurzschrift mit Zeichen), `schluessel`, Plätze des Grundtons; `aufgabe` mit `{grund}` oder `{kurz}` | Sekunde statt Terz, Quarte/Sexte statt Quinte, Dur/Moll vertauscht, Zeichen der Quinte | `dreiklaenge/dur-moll-kurzschrift#dreiklang-schreiben` |
+| Oktave höher | `generated` aus `src/data/oktaven.yaml`, `compare: choice` | der gezogene Ton | derselbe Ton, falsche Oktave | `toene/oktavlagen#oktave-hoeher` |
+| Halbtöne zählen | `generated` aus `src/data/stammtoene.yaml`, `number` | zwei Stammtöne | alles als Ganzton, nur weiße Tasten | `toene/halbtonschritte#halbtoene-zaehlen` |
+| Stammtöne zählen | `generated` aus `src/data/stammtoene.yaml`, `number` | zwei Stammtöne | Startton nicht gezählt, nur dazwischen | `intervalle/grobbestimmung#stammtoene-zaehlen` |
+| klein oder groß | `generated` aus `src/data/intervalle.yaml`, `compare: choice` | eine Sekunde oder Terz | die andere Größe | `intervalle/feinbestimmung#klein-oder-gross` |
+| Zuordnen, ordnen, entscheiden | `matching`, `ordering`, `single-choice`, `multiple-choice`, `true-false`, `number` | – | der typische Fehler als Option mit `info` | `toene/vorzeichen#bis-zum-taktstrich` |
+
+- Jede Seite: mindestens vier Übungen, höchstens die Hälfte ratbar; jede Inhaltsseite hat eine Komponente oder ein
+  `generated`. Auf Seiten mit beiden Schlüsseln gibt es die Komponente einmal im Violin- und einmal im Bassschlüssel.
+- Eingaben der Notenkomponenten: Knöpfe (Lesen) oder Tippen ins System plus „höher“/„tiefer“ (Setzen), weil ein
+  Platz bei 360 px nur etwa 8 px hoch ist.
+- Jede falsche Option sagt, warum sie nicht passt; jede Komponente und jedes `generated` hat Fehler mit Meldung.
+- Selbsteinschätzung: in jeder `chapter.yaml` je Inhaltsseite 2–3 Übungen, nur Komponenten und `generated`; die der
+  App (`/einschaetzung/`) ist der Probetest.
 
 ## Figures
 
-- `Klaviatur` (Komponente, nur Anzeige, mit `nojs`): zwei Oktaven, Tasten beschriftet, markierte Tasten gelb mit
-  Namen, Oktavbereiche beschriftet, Halbtöne als Bögen.
-- `NotenLesen`/`NotenSetzen` zeichnen das Notensystem selbst (SVG): 5 Linien, Schlüssel, Noten mit Hilfslinien, der
-  Schlüsselton (g¹ bzw. f) nur in Erklärfiguren markiert, nie in Aufgaben.
-- Eigene SVG-Bilder in `src/images/`, selbst gezeichnet, Lizenz CC BY 4.0: Notensystem mit nummerierten Linien,
-  Violin- und Bassschlüssel mit markiertem Schlüsselton, Terzenschichtung eines Dreiklangs.
-- Konventionen: Linien von unten gezählt; Markierungen in der Akzentfarbe plus Beschriftung (nie nur Farbe); Tonnamen
-  deutsch mit hochgestellter Oktavzahl; funktioniert bei 360 px.
-- `alt` sagt, was zu sehen ist; die Bildunterschrift, worauf man achten soll; keine Figur zeigt die Lösung.
+- `NotenSystem` (Komponente, auch als Figur-Block mit `nojs`): System mit Violin- oder Bassschlüssel (als Pfad
+  gezeichnet), Noten nebeneinander oder als Akkord (`akkord`), Hilfslinien, Zeichen; optional `markiert` (Linien oder
+  Zwischenräume in der Akzentfarbe), `namen` unter den Noten (leere Texte lassen eine Note unbenannt), `nummern`
+  (Linien 1–5 rechts). In Aufgaben nie Namen oder Markierungen, die die Lösung zeigen.
+- `Klaviatur` (Komponente, nur Anzeige, mit `nojs`): ein bis zwei Oktaven ab `start` (1 kleine, 2 eingestrichene
+  Oktave), weiße Tasten beschriftet, schwarze nur mit `schwarzeNamen` (Kreuz- oder mit `be` b-Namen), `markiert` gelb
+  mit dicker Kante, `boegen` je ein Halbtonschritt, `oktavnamen` darunter. Tasten als Halbtonzahl ab großem C (c = 12,
+  c¹ = 24).
+- Keine Bilddateien; alles wird gezeichnet. Konventionen: Linien von unten gezählt; Markierung immer mit zweitem
+  Merkmal (Beschriftung, dicke Kante); Tonnamen deutsch mit hochgestellter Oktavzahl; bei 360 px lesbar.
+- `beschreibung` (Bildschirmleser) und `nojs` sagen, was zu sehen ist; der Text davor, worauf man achten soll.
 
 ## Sources
 
@@ -142,13 +146,19 @@ Alle am 2026-11-23 geöffnet; Lizenz CC BY-SA 4.0; nur Fakten übernommen, keine
    `requires`; ein neuer Strang ist eine neue App.
 2. Ordner `src/<kapitel>/` mit `chapter.yaml`; Kapitel in `src/app.yaml` unter `chapters` eintragen.
 3. Voraussetzungen, die die App nicht übt: eine Wiederholungsseite `das-brauchst-du` am Kapitelanfang.
-4. Je Kompetenz eine Seite mit `einstieg`, `regel`, `beispiel`, `uebung` wie oben, Übungen aus den Mustern;
-   `NotenLesen`/`NotenSetzen` bei Bedarf um eine neue `art` erweitern (Logik in `Notenbild.ts`, Test dazu); Töne aus
-   `src/data/toene.yaml`.
+4. Je Kompetenz eine Seite mit `einstieg`, `regel`, `beispiel`, `uebung` wie oben, Übungen aus den Mustern. Neue
+   Aufgabenarten in den Komponenten (z. B. Quarte bis Oktave fein in `IntervallLesen`, `FEIN` erweitern) mit Logik in
+   `Notenbild.ts` und Test; Beispiele der Blöcke (`examples`) aus `generate(1, props)` berechnen.
 5. 1 bis 3 Übungen jeder Seite in `selfAssessment` der `chapter.yaml` aufnehmen, wie Skill
    `lernapps-explainer-self-assessment` sagt.
 6. `npx --no -- lernapps check`, Seiten mit `npx --no -- lernapps screenshots` ansehen, dann committen.
 
 ## Rules learned from mistakes
 
-None yet.
+- Eine Figur, die alle Namen zeigt, macht die Zuordnung danach zum Abschreiben: Erklärfiguren benennen nur Anker (z. B.
+  die Linien-Töne), den Rest leiten die Lernenden her. (Lernenden-Check der Musterseite)
+- Merke-Kästen stehen vor der Figur, die sie erklären, nicht danach. (ebenda)
+- Fehlermeldungen nennen nur, was die Seite schon erklärt hat: Auf Violin-Seiten heißt der Schlüssel-Fehler „zwei
+  Schritte daneben“, nicht „Bassschlüssel“. (ebenda)
+- Eine markierte Taste der Klaviatur zeigt keinen Namen, wenn nach ihm gefragt ist. (Seite Vorzeichen)
+- Tabellen mit mehr als zwei langen Spalten laufen bei 360 px über: zwei Spalten. (Seite Oktavlagen)

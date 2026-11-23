@@ -427,7 +427,7 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 - [x] Kapitel dreiklaenge: Wiederholungsseite das-brauchst-du (recap moll-aufbau), Seite dreiklang-aufbauen mit NotenSetzen dreiklang, single-choice, true-false, ordering
 - [x] Seite dreiklaenge/dur-moll-kurzschrift: NotenLesen dreiklang mit Kurzschrift, NotenSetzen aus Kurzschrift, matching, single-choice; Selbsteinschätzung Kapitel dreiklaenge, Probetest der App prüfen
 <!-- tasks: pages (10 added): the other pages or screens, after the pattern -->
-- [ ] Update the content guide so that it describes the app as built (`app-content-matches`).
+- [x] Update the content guide so that it describes the app as built (`app-content-matches`).
 - [ ] Run `npx --no -- lernapps check` until it passes.
 - [ ] Look at every screen and state, at 360 px and on a desktop, as "Look at the app" of skill `lernapps-cli` says.
       Compare each with its sketch.
