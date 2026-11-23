@@ -1,0 +1,222 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Dur und Moll in Kurzschrift
+description: "Dur- und Moll-Dreiklänge an ihren Terzen erkennen, bauen und in Kurzschrift schreiben: C für Dur, c für Moll."
+competencies: [dreiklangsarten]
+blocks:
+  - type: section
+    id: einstieg
+    title: Ein Ton macht den Unterschied
+    blocks:
+      - type: text
+        text: >-
+          Auf dieser Seite lernst du, Dur- und Moll-Dreiklänge zu bestimmen, selbst zu schreiben und mit einem Buchstaben
+          zu benennen. Du kannst schon Dreiklänge bauen und Terzen fein bestimmen. Vergleiche diese zwei Dreiklänge:
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: -2, vz: 0 }, { p: 0, vz: 0 }, { p: 2, vz: 0 }]
+          akkord: true
+          markiert: []
+          beschreibung: "Erster Dreiklang im Violinschlüssel: c¹, e¹, g¹."
+          klickbar: false
+        nojs: "Erster Dreiklang: c¹, e¹, g¹."
+      - type: vue-component
+        component: NotenSystem
+        props:
+          schluessel: violin
+          noten: [{ p: -2, vz: 0 }, { p: 0, vz: -1 }, { p: 2, vz: 0 }]
+          akkord: true
+          markiert: []
+          beschreibung: "Zweiter Dreiklang im Violinschlüssel: c¹, es¹ mit einem ♭ vor dem e¹, g¹."
+          klickbar: false
+        nojs: "Zweiter Dreiklang: c¹, es¹ (mit ♭), g¹."
+      - type: single-choice
+        id: einstieg-unterschied
+        text: Worin unterscheiden sich die beiden Dreiklänge?
+        options:
+          - text: Nur in der Terz, e¹ oder es¹
+            correct: true
+            info: Grundton c¹ und Quinte g¹ sind gleich. Nur die Terz liegt im zweiten Dreiklang einen Halbtonschritt tiefer.
+          - text: Im Grundton
+            correct: false
+            info: Beide Dreiklänge stehen auf c¹. Der Grundton ist gleich.
+          - text: In der Quinte
+            correct: false
+            info: Beide haben g¹ als Quinte, ohne Zeichen.
+        explanation: Der erste ist C-Dur, der zweite c-Moll. Die Terz entscheidet über Dur oder Moll.
+        links:
+          - title: Dreiklang (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Dreiklang"
+  - type: section
+    id: regel
+    title: Die untere Terz entscheidet
+    blocks:
+      - type: text
+        text: >-
+          Ein **Dur-Dreiklang** hat unten eine große Terz (4 Halbtonschritte) und darüber eine kleine Terz (3). Ein
+          **Moll-Dreiklang** hat es umgekehrt: unten die kleine Terz, darüber die große. Vom Grundton bis zur Quinte
+          sind es in beiden 7 Halbtonschritte.
+      - type: text
+        text: >-
+          In der **Kurzschrift** schreibst du nur den Grundton: einen Großbuchstaben für Dur, einen Kleinbuchstaben
+          für Moll. C heißt C-Dur, c heißt c-Moll. Mit Vorzeichen bleibt es gleich: Fis ist Fis-Dur, fis ist fis-Moll,
+          B ist B-Dur, es ist es-Moll.
+      - type: definition
+        term: Kurzschrift
+        explanation: Ein Dreiklang mit dem Namen seines Grundtons, groß geschrieben für Dur (C), klein für Moll (c).
+      - type: table
+        caption: Vier Dreiklänge und ihre Kurzschrift
+        header: [Dreiklang, Töne, Kurzschrift]
+        rows:
+          - [C-Dur, "c, e, g", C]
+          - [c-Moll, "c, es, g", c]
+          - [D-Dur, "d, fis, a", D]
+          - [h-Moll, "h, d, fis", h]
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Bestimme zuerst die untere Terz: 4 Halbtonschritte heißt Dur und Großbuchstabe, 3 Halbtonschritte heißt
+              Moll und Kleinbuchstabe. Benenne den Dreiklang immer nach dem untersten Ton, und vergiss sein Vorzeichen
+              nicht.
+  - type: section
+    id: beispiel
+    title: "Beispiel: e, g, h"
+    blocks:
+      - type: example
+        title: Welcher Dreiklang ist e, g, h, und wie heißt er in Kurzschrift?
+        blocks:
+          - type: text
+            text: |
+              1. Der unterste Ton ist e: Er ist der Grundton.
+              2. Untere Terz e–g: e, f, die schwarze Taste, g. Das sind 3 Halbtonschritte, eine kleine Terz.
+              3. Kleine Terz unten heißt Moll. Kleinbuchstabe: Der Dreiklang heißt **e**, also e-Moll.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: matching
+        id: kurzschrift-zuordnen
+        text: Welcher Dreiklang ist gemeint?
+        pairs:
+          - { left: G, right: G-Dur }
+          - { left: g, right: g-Moll }
+          - { left: Es, right: Es-Dur }
+          - { left: fis, right: fis-Moll }
+        distractors: [f-Moll]
+        explanation: Großbuchstabe heißt Dur, Kleinbuchstabe heißt Moll. Das Vorzeichen gehört zum Namen des Grundtons.
+        links:
+          - title: Tonart (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Tonart"
+      - type: single-choice
+        id: terzen-vertauscht
+        text: In einem Dreiklang liegt unten eine kleine Terz und darüber eine große Terz. Was ist er?
+        options:
+          - text: ein Moll-Dreiklang
+            correct: true
+            info: Kleine Terz unten, große oben, das ist der Aufbau von Moll.
+          - text: ein Dur-Dreiklang
+            correct: false
+            info: Dur hat die große Terz unten und die kleine oben, genau umgekehrt.
+          - text: kein Dreiklang
+            correct: false
+            info: Zwei Terzen übereinander sind immer ein Dreiklang. Die Größe der Terzen entscheidet nur Dur oder Moll.
+        explanation: Die untere Terz entscheidet. Klein heißt Moll.
+        links:
+          - title: Dreiklang (Wikipedia)
+            url: "https://de.wikipedia.org/wiki/Dreiklang"
+      - type: vue-component
+        id: dreiklang-lesen
+        component: DreiklangLesen
+        props:
+          aufgabe: Wie heißt dieser Dreiklang in Kurzschrift? Wähle Grundton, Zeichen und Dur oder Moll.
+          schluessel: violin
+          tiefste: -2
+          hoechste: 4
+          beschriftung:
+            grundton: Grundton
+            vorzeichen: Zeichen vor dem Grundton
+            ohne: ohne
+            kreuz: "♯ (-is)"
+            be: "♭ (-es)"
+            geschlecht: Dur oder Moll
+            dur: Dur (Großbuchstabe)
+            moll: Moll (Kleinbuchstabe)
+          mistakes:
+            - "Dur und Moll vertauscht. Zähl die Halbtonschritte der unteren Terz: 4 heißt Dur, 3 heißt Moll."
+            - Schau auf das Zeichen vor dem Grundton. Es gehört in den Namen.
+            - Der Dreiklang heißt nach seinem untersten Ton, nicht nach der Terz.
+        examples:
+          accepted:
+            - { answer: g, seed: 1 }
+          rejected:
+            - { answer: G, seed: 1 }
+            - { answer: b, seed: 1 }
+      - type: vue-component
+        id: dreiklang-schreiben
+        component: DreiklangSetzen
+        props:
+          aufgabe: "Schreibe den Dreiklang {kurz}. Der Grundton steht schon da. Wähle „Terz“ oder „Quinte“, setze sie und wähle das passende Zeichen."
+          schluessel: violin
+          modus: kurz
+          tiefste: -2
+          hoechste: 4
+          beschriftung:
+            system: Notensystem mit Violinschlüssel und dem Grundton. Tippe auf eine Linie oder einen Zwischenraum.
+            setze: Ich setze gerade
+            terz: Terz
+            quinte: Quinte
+            leer: noch nicht gesetzt
+            hoeher: höher
+            tiefer: tiefer
+            zeichen: Zeichen vor der Note
+            kein: kein
+            kreuz: ♯
+            be: ♭
+          mistakes:
+            - Die Terz steht direkt neben dem Grundton, das ist eine Sekunde. Zähl drei Stammtöne, beide mitgezählt.
+            - Die Quinte steht nicht eine Terz über der Terz. Setz sie auf den nächsten Platz gleicher Art.
+            - "Dur und Moll vertauscht: Großbuchstabe braucht unten eine große Terz (4 Halbtonschritte), Kleinbuchstabe eine kleine (3)."
+            - Prüf das Zeichen der Quinte. Vom Grundton bis zur Quinte sind es 7 Halbtonschritte.
+        examples:
+          accepted:
+            - answer: { terz: { p: 4, vz: -1 }, quinte: { p: 6, vz: 0 } }
+              seed: 1
+          rejected:
+            - answer: { terz: { p: 4, vz: 0 }, quinte: { p: 6, vz: 0 } }
+              seed: 1
+            - answer: { terz: { p: 3, vz: -1 }, quinte: { p: 6, vz: 0 } }
+              seed: 1
+      - type: vue-component
+        id: dreiklang-lesen-bass
+        component: DreiklangLesen
+        props:
+          aufgabe: Wie heißt dieser Dreiklang im Bassschlüssel in Kurzschrift?
+          schluessel: bass
+          tiefste: -4
+          hoechste: 4
+          beschriftung:
+            grundton: Grundton
+            vorzeichen: Zeichen vor dem Grundton
+            ohne: ohne
+            kreuz: "♯ (-is)"
+            be: "♭ (-es)"
+            geschlecht: Dur oder Moll
+            dur: Dur (Großbuchstabe)
+            moll: Moll (Kleinbuchstabe)
+          mistakes:
+            - "Dur und Moll vertauscht. Zähl die Halbtonschritte der unteren Terz: 4 heißt Dur, 3 heißt Moll."
+            - Schau auf das Zeichen vor dem Grundton. Es gehört in den Namen.
+            - Der Dreiklang heißt nach seinem untersten Ton, nicht nach der Terz.
+        examples:
+          accepted:
+            - { answer: a, seed: 1 }
+          rejected:
+            - { answer: A, seed: 1 }
+            - { answer: c, seed: 1 }
+      - type: text
+        text: >-
+          Geschafft: Du liest und schreibst Töne in beiden Schlüsseln, bestimmst Intervalle grob und fein und schreibst
+          Dur- und Moll-Dreiklänge in Kurzschrift. Prüf jetzt im Probetest auf der Startseite, was schon sitzt.
