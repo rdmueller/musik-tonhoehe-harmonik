@@ -38,6 +38,7 @@ zeigt, welches Thema für die Lernkontrolle schon sitzt.
   Erklärungen und ohne Selbsteinschätzung; ein Trainer wäre möglich, die Wiederholung der Regeln aber nicht.
 - Strang `musik/tonhoehe-harmonik`, Themen 1–4; Notation und Orchesteraufbau in einer zweiten App (Antwort „C“).
 - Reihenfolge im Kapitel `toene`: `notensystem`, `oktavlagen`, `noten-benennen`, … – `oktavlagen` vor `noten-benennen` (beide Schritt 5 der Karte), weil das Benennen die Oktavlagen braucht (Befund des Lernenden-Checks).
+- Selbsteinschätzung in allen drei Kapiteln, je Inhaltsseite 2–3 Komponenten oder `generated`; die der App (23 Aufgaben) ist der Probetest. Ein Durchlauf bis zum Ergebnis im Lernenden-Check der ganzen App.
 - Kein `scope`: keine `open-task`, und die App folgt keinem Material des Erstellers (structure.md, „scope“).
 - Name `musiklehre` statt `musik-lernkontrolle`: Der Name beschreibt den Inhalt, nicht den Anlass. Klasse, Schulform
   und Land stehen im Katalogeintrag (`grades`) und auf der Lernlandkarte, nicht im Namen.
@@ -459,7 +460,7 @@ Kompetenzen des Strangs von der Karte nehmen, je Seite die Abschnitte `einstieg`
 
 ### Tasks
 
-- [ ] Load skill `lernapps-explainer-self-assessment`. Add the self-assessment as it says, or write under "Key
+- [x] Load skill `lernapps-explainer-self-assessment`. Add the self-assessment as it says, or write under "Key
       decisions" why the app has none. Commit.
 - [ ] Load skill `lernapps-github`. Set up the repository and Pages as it says. Ask for the repository's name and
       every click only the creator can make, in one message.
