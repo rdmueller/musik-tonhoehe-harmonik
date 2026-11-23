@@ -11,7 +11,7 @@ prePushFailures: 0
 failedChecks: {}
 ---
 
-# Plan: musiklehre, first version
+# Plan: musik-tonhoehe-harmonik, first version
 
 <!--
 For you, the assistant. The process is in AGENTS.md; this plan holds the method.
@@ -40,7 +40,7 @@ zeigt, welches Thema für die Lernkontrolle schon sitzt.
 - Reihenfolge im Kapitel `toene`: `notensystem`, `oktavlagen`, `noten-benennen`, … – `oktavlagen` vor `noten-benennen` (beide Schritt 5 der Karte), weil das Benennen die Oktavlagen braucht (Befund des Lernenden-Checks).
 - Selbsteinschätzung in allen drei Kapiteln, je Inhaltsseite 2–3 Komponenten oder `generated`; die der App (23 Aufgaben) ist der Probetest. Ein Durchlauf bis zum Ergebnis im Lernenden-Check der ganzen App.
 - Kein `scope`: keine `open-task`, und die App folgt keinem Material des Erstellers (structure.md, „scope“).
-- Name `musiklehre` statt `musik-lernkontrolle`: Der Name beschreibt den Inhalt, nicht den Anlass. Klasse, Schulform
+- Name `musik-tonhoehe-harmonik` (erst `musik-lernkontrolle`, dann `musiklehre`): Schema `musik-<Strang>`, eine App je Strang der Lernlandkarte, weitere Themen des Strangs als neue Kapitel; der Name beschreibt den Inhalt, nicht den Anlass (Wunsch des Erstellers nach einem Namensschema). Klasse, Schulform
   und Land stehen im Katalogeintrag (`grades`) und auf der Lernlandkarte, nicht im Namen.
 
 ## Notes
