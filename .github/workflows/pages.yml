@@ -40,7 +40,7 @@ jobs:
       contents: read
       actions: read # on main: find the run of the pull request that checked the same tree, and take its result
     steps:
-      - uses: lernapps/tooling/actions/app-check@7898a4bad8dcfc9842c8e26c6eeed6a29fedd04a # v0.20.1
+      - uses: lernapps/tooling/actions/app-check@v0.20.1 # v0.20.1
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: app
@@ -49,7 +49,7 @@ jobs:
       contents: write
       pages: write
     steps:
-      - uses: lernapps/tooling/actions/app-publish@7898a4bad8dcfc9842c8e26c6eeed6a29fedd04a # v0.20.1
+      - uses: lernapps/tooling/actions/app-publish@v0.20.1 # v0.20.1
   preview:
     # a pull request from this repo only; on closing, it removes the preview without a check
     if: >-
@@ -63,4 +63,4 @@ jobs:
       pull-requests: write
       pages: read # the app's address, for the comment
     steps:
-      - uses: lernapps/tooling/actions/app-preview@7898a4bad8dcfc9842c8e26c6eeed6a29fedd04a # v0.20.1
+      - uses: lernapps/tooling/actions/app-preview@v0.20.1 # v0.20.1
